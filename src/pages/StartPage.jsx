@@ -8,8 +8,9 @@ function StartPage() {
       <p>임시 페이지</p>
       <div><Link to="/login">로그인</Link></div>
       <div><Link to="/signup">회원가입</Link></div>
-      <div><Link to="/select">선택 화면</Link></div>
+      <div><Link to="/signup/select">선택 화면</Link></div>
       <div><Link to="/customer/main">고객 메인</Link></div>
+      <div><Link to="/customer/profile">고객 프로필</Link></div>
       <div><Link to="/owner/main">사장 메인</Link></div>
     </div>
   );
