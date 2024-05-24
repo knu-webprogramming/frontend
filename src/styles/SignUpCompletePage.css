@@ -1,0 +1,30 @@
+.signup-complete-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .success-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .complete-message {
+    margin: 20px 0;
+    font-size: 1.5rem;
+  }
+  
+  .redirect-link {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #383838;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .redirect-link:hover {
+    color: #363636;
+  }

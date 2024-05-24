@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import '../styles/CustomerProfile.css';
+import '../styles/CustomerProfilePage.css';
+import defaultProfileImage from '../assets/sample.png';
 
 function CustomerProfilePage() {
   const [profileImage, setProfileImage] = useState(null);
@@ -24,7 +25,7 @@ function CustomerProfilePage() {
           {profileImage ? (
             <img src={profileImage} alt="Profile" className="profile-pic" />
           ) : (
-            <div className="profile-pic-placeholder"></div>
+            <img src={defaultProfileImage} alt="Default Profile" className="profile-pic" />
           )}
         </label>
       </div>
