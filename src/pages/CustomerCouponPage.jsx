@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
 import sample from '../assets/sample.png';
+import Header from '../components/Header';
 
 function CustomerCouponPage() {
   const navigate = useNavigate();
@@ -12,9 +13,7 @@ function CustomerCouponPage() {
 
   return (
     <div className="coupon-container">
-      <div className="header" onClick={handleRedirect}>
-        바바리안
-      </div>
+      <Header title="바바리안" />
       <div className="description">
         도장 10개 모을 시 음료 한잔 무료 제공
       </div>

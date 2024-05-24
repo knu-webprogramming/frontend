@@ -15,6 +15,8 @@ function StartPage() {
       <div><Link to="/customer/coupon-box">8. CustomerCouponBoxPage</Link></div>
       <div><Link to="/customer/profile/modify">9. CustomerProfileModifyPage</Link></div>
       <div><Link to="/customer/coupon">12. CustomerCouponPage</Link></div>
+      <div><Link to="/owner/profile">13. OwnerProfilePage</Link></div>
+      <div><Link to="/owner/profile/modify">14. OwnerProfileModifyPage</Link></div>
       <div><Link to="/owner/main">15. OwnerMainPage</Link></div>
     </div>
   );

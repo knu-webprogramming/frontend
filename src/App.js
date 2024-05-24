@@ -10,7 +10,9 @@ import CustomerMainPage from './pages/CustomerMainPage';
 import CustomerCouponBoxPage from './pages/CustomerCouponBoxPage';
 import CustomerProfileModifyPage from './pages/CustomerProfileModifyPage';
 import CustomerCouponPage from './pages/CustomerCouponPage';
+import OwnerProfilePage from './pages/OwnerProfilePage';
 import OwnerMainPage from './pages/OwnerMainPage';
+import OwnerProfileModifyPage from './pages/OwnerProfileModifyPage';
 
 function App() {
   return (
@@ -26,8 +28,9 @@ function App() {
         <Route path="/customer/coupon-box" element={<CustomerCouponBoxPage />} />
         <Route path="/customer/profile/modify" element={<CustomerProfileModifyPage />} />
         <Route path="/customer/coupon" element={<CustomerCouponPage />} />
-
+        <Route path="/owner/profile" element={<OwnerProfilePage />} />
         <Route path="/owner/main" element={<OwnerMainPage />} />
+        <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
       </Routes>
     </Router>
   );
