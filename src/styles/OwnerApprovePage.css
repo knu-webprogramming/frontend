@@ -1,0 +1,33 @@
+.approve-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .back-button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .notification {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notification img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .notification span {
+    margin-left: 5px;
+  }
+  
+  main {
+    margin-top: 20px;
+  }

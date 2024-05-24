@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/OwnerMainPage.css';
 import sampleImage from '../assets/sample.png';
 
-const CustomerMainPage = () => {
+const OwnerMainPage = () => {
   const navigate = useNavigate();
 
   const handleRedirect = () => {
@@ -11,7 +11,7 @@ const CustomerMainPage = () => {
   };
 
   return (
-    <div className="customer-main-page">
+    <div className="owner-main-page">
       <div className="header">
         <img src={sampleImage} alt="Profile" className="profile-icon" onClick={handleRedirect} />
         <img src={sampleImage} alt="Notifications" className="notification-icon" onClick={handleRedirect} />
@@ -33,4 +33,4 @@ const CustomerMainPage = () => {
   );
 };
 
-export default CustomerMainPage;
+export default OwnerMainPage;
