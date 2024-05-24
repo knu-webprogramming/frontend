@@ -1,8 +1,8 @@
 import React from 'react';
 import ApprovalItem from '../components/ApprovalItem';
-import '../styles/OwnerApprovePage.css';
+import '../styles/OwnerApprovalPage.css';
 
-const OwnerApprovePage = () => {
+const OwnerApprovalPage = () => {
   const items = [
     { id: 1, name: 'A 님 도장 찍기 신청', date: '2024 - 05 - 11 21:25' },
     { id: 2, name: 'B 님 도장 찍기 신청', date: '2024 - 05 - 11 21:25' },
@@ -31,4 +31,4 @@ const OwnerApprovePage = () => {
   );
 };
 
-export default OwnerApprovePage;
+export default OwnerApprovalPage;

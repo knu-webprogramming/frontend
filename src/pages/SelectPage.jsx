@@ -17,8 +17,9 @@ function SelectPage() {
     <div className="container">
       <div className="header">
         <img src={logoImage} alt="Logo" className="logo" />
-        <h1>쿠폰모아</h1>
-        <p>어느 유형의 사용자이신가요?</p>
+      </div>
+      <div>
+      <p>어느 유형의 사용자이신가요?</p>
       </div>
       <div className="options">
         <div className="option" onClick={handleStoreClick}>

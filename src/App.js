@@ -14,7 +14,7 @@ import CustomerCouponPage from './pages/CustomerCouponPage';
 import OwnerProfilePage from './pages/OwnerProfilePage';
 import OwnerMainPage from './pages/OwnerMainPage';
 import OwnerProfileModifyPage from './pages/OwnerProfileModifyPage';
-import OwnerApprovePage from './pages/OwnerApprovePage';
+import OwnerApprovalPage from './pages/OwnerApprovalPage';
 
 function App() {
   return (
@@ -34,7 +34,7 @@ function App() {
         <Route path="/owner/profile" element={<OwnerProfilePage />} />
         <Route path="/owner/main" element={<OwnerMainPage />} />
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
-        <Route path="/owner/approval" element={<OwnerApprovePage />} />
+        <Route path="/owner/approval" element={<OwnerApprovalPage />} />
       </Routes>
     </Router>
   );
