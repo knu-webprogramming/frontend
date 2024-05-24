@@ -1,62 +1,115 @@
 .customer-main-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    text-align: center;
-  }
-  
-  .header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    position: absolute;
-    top: 0;
-  }
-  
-  .profile-icon, .notification-icon {
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-  }
-  
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .avatar img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-  }
-  
-  .welcome-text {
-    margin-top: 20px;
-    font-size: 20px;
-    color: #333;
-  }
-  
-  .highlight {
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
 
-  .logout-container {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+}
+
+.profile-icon, .notification-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.welcome-text {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+.highlight {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-container {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.logout-button {
+  font-size: 16px;
+  color: grey;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .customer-main-page {
+      padding: 10px;
   }
-  
+
+  .header {
+      padding: 10px;
+  }
+
+  .profile-icon, .notification-icon {
+      width: 20px;
+      height: 20px;
+  }
+
+  .avatar img {
+      width: 80px;
+      height: 80px;
+  }
+
+  .welcome-text {
+      font-size: 18px;
+  }
+
   .logout-button {
-    font-size: 16px;
-    color: grey;
-    text-decoration: underline;
-    cursor: pointer;
+      font-size: 14px;
   }
+}
+
+@media (max-width: 480px) {
+  .profile-icon, .notification-icon {
+      width: 16px;
+      height: 16px;
+  }
+
+  .avatar img {
+      width: 60px;
+      height: 60px;
+  }
+
+  .welcome-text {
+      font-size: 16px;
+  }
+
+  .logout-button {
+      font-size: 12px;
+  }
+}

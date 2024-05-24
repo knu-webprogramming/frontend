@@ -1,33 +1,71 @@
-.approve-page {
-    padding: 20px;
-    font-family: Arial, sans-serif;
+.approval-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.back-button img {
+  width: 24px;
+  height: 24px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+}
+
+.notification img {
+  width: 24px;
+  height: 24px;
+}
+
+.notification span {
+  margin-left: 5px;
+}
+
+main {
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .approval-page {
+      padding: 10px;
   }
-  
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+  .back-button img, .notification img {
+      width: 20px;
+      height: 20px;
   }
-  
-  .back-button img {
-    width: 24px;
-    height: 24px;
-  }
-  
-  .notification {
-    display: flex;
-    align-items: center;
-  }
-  
-  .notification img {
-    width: 24px;
-    height: 24px;
-  }
-  
+
   .notification span {
-    margin-left: 5px;
+      font-size: 14px;
   }
-  
+
   main {
-    margin-top: 20px;
+      margin-top: 15px;
   }
+}
+
+@media (max-width: 480px) {
+  .back-button img, .notification img {
+      width: 16px;
+      height: 16px;
+  }
+
+  .notification span {
+      font-size: 12px;
+  }
+
+  main {
+      margin-top: 10px;
+  }
+}

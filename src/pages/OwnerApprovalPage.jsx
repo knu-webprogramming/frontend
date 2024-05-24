@@ -11,7 +11,7 @@ const OwnerApprovalPage = () => {
   ];
 
   return (
-    <div className="approve-page">
+    <div className="approval-page">
       <header>
         <button className="back-button" onClick={() => window.location.href = '/'}>
           <img src="../assets/sample.png" alt="back"/>

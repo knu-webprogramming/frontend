@@ -1,76 +1,100 @@
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: white;
-  }
-  
-  .logo {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 50px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.signup-button img {
+  width: 20px; /* Adjust the size of the icon */
+  height: 20px; /* Adjust the size of the icon */
+  margin-right: 10px;
+}
+
+.kakao {
+  background-color: #FEE500;
+  color: #3C1E1E;
+}
+
+.naver {
+  background-color: #03C75A;
+  color: white;
+}
+
+.google {
+  background-color: white;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.login-link {
+  margin-top: 20px;
+  color: gray;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 600px) {
   .signup-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 50px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .signup-button img {
-    width: 20px; /* Adjust the size of the icon */
-    height: 20px; /* Adjust the size of the icon */
-    margin-right: 10px;
-  }
-  
-  .kakao {
-    background-color: #FEE500;
-    color: #3C1E1E;
-  }
-  
-  .naver {
-    background-color: #03C75A;
-    color: white;
-  }
-  
-  .google {
-    background-color: white;
-    color: #000000;
-    border: 1px solid #000000;
-  }
-  
-  .login-link {
-    margin-top: 20px;
-    color: gray;
-    text-decoration: none;
-  }
-  
-  .login-link:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 600px) {
-    .signup-button {
       width: 90%;
-    }
-  
-    .signup-button img {
+  }
+
+  .signup-button img {
       width: 16px; /* Adjust size for smaller screens if necessary */
       height: 16px; /* Adjust size for smaller screens if necessary */
-    }
   }
+}
+
+@media (max-width: 480px) {
+  .logo {
+      width: 80px;
+  }
+
+  .signup-button {
+      width: 80%;
+      font-size: 14px;
+      height: 45px;
+  }
+
+  .signup-button img {
+      width: 14px;
+      height: 14px;
+  }
+
+  .login-link {
+      font-size: 14px;
+  }
+}

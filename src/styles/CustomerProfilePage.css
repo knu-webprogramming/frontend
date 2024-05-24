@@ -1,57 +1,99 @@
 .form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: auto;
-    max-width: 400px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: auto;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 100px;
+  height: 100px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+  color: white;
+  background-color: #f76c6c;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #e85a5a;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
   .title {
-    font-size: 24px;
-    margin-bottom: 20px;
+      font-size: 20px;
   }
-  
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-    background-color: #cccccc;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
+
   label {
-    margin-bottom: 5px;
-    font-size: 18px;
+      font-size: 16px;
   }
-  
+
   input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+      font-size: 14px;
+      padding: 8px;
   }
-  
+
   .submit-button {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    color: white;
-    background-color: #f76c6c;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+      font-size: 16px;
+      padding: 12px;
   }
-  
-  .submit-button:hover {
-    background-color: #e85a5a;
+}
+
+@media (max-width: 480px) {
+  .title {
+      font-size: 18px;
   }
+
+  label {
+      font-size: 14px;
+  }
+
+  input {
+      font-size: 12px;
+      padding: 6px;
+  }
+
+  .submit-button {
+      font-size: 14px;
+      padding: 10px;
+  }
+}
