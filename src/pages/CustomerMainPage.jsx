@@ -1,11 +1,36 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../styles/CustomerMainPage.css';
+import sampleImage from '../assets/sample.png';
 
-function CustomerMainPage() {
+const CustomerMainPage = () => {
+  const navigate = useNavigate();
+
+  const handleRedirect = () => {
+    navigate('/');
+  };
+
   return (
-    <div>
-      <h1>Customer Main Page</h1>
+    <div className="customer-main-page">
+      <div className="header">
+        <img src={sampleImage} alt="Profile" className="profile-icon" onClick={handleRedirect} />
+        <img src={sampleImage} alt="Notifications" className="notification-icon" onClick={handleRedirect} />
+      </div>
+      <div className="content">
+        <div className="avatar">
+          <img src={sampleImage} alt="Avatar" />
+        </div>
+        <div className="welcome-text">
+          <span className="highlight" onClick={handleRedirect}>안녕</span> 고객님,
+          <br />
+          안녕하세요
+        </div>
+        <div className="logout-container">
+          <span className="logout-button" onClick={handleRedirect}>로그아웃</span>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default CustomerMainPage;

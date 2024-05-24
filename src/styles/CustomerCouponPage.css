@@ -1,0 +1,71 @@
+.coupon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .stamps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .stamp {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stamp.active {
+    filter: none;
+  }
+  
+  .stamp.inactive {
+    filter: grayscale(100%);
+  }
+  
+  .stamp-button {
+    background-color: #ff637f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .coupon-button {
+    background-color: #cccccc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: not-allowed;
+  }
+  
+  @media (max-width: 768px) {
+    .stamp {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .stamp-button,
+    .coupon-button {
+      width: 100%;
+      font-size: 14px;
+    }
+  }

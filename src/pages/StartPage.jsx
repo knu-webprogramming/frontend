@@ -12,6 +12,9 @@ function StartPage() {
       <div><Link to="/login">5. LoginPage</Link></div>
       <div><Link to="/customer/profile">6. CustomerProfilePage</Link></div>
       <div><Link to="/customer/main">7. CustomerMainPage</Link></div>
+      <div><Link to="/customer/coupon-box">8. CustomerCouponBoxPage</Link></div>
+      <div><Link to="/customer/profile/modify">9. CustomerProfileModifyPage</Link></div>
+      <div><Link to="/customer/coupon">12. CustomerCouponPage</Link></div>
       <div><Link to="/owner/main">15. OwnerMainPage</Link></div>
     </div>
   );
