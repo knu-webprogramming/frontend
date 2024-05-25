@@ -26,30 +26,46 @@
 .signup-button {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
   height: 50px;
-  margin: 10px 0;
+  margin: 20px 0;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.signup-button img {
-  width: 20px; /* Adjust the size of the icon */
-  height: 20px; /* Adjust the size of the icon */
+.button-image {
+  width: 50px;
+  height: 50px;
   margin-right: 10px;
+  margin-left: 10px; /* 좌측에서 10px 떨어진 위치 */
+}
+
+.naver-image {
+  width: 60px;  /* 네이버 이미지 크기 조정 */
+  height: 60px; /* 네이버 이미지 크기 조정 */
+}
+
+.button-text {
+  margin-left: 10px;
 }
 
 .kakao {
   background-color: #FEE500;
-  color: #3C1E1E;
+  color: #191919;
+}
+
+.kakao .button-image {
+  opacity: 0.9;
 }
 
 .naver {
-  background-color: #03C75A;
+  background-color: #03c75a;
   color: white;
 }
 
@@ -70,14 +86,19 @@
 }
 
 /* 반응형 디자인 */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .signup-button {
       width: 90%;
   }
 
-  .signup-button img {
-      width: 16px; /* Adjust size for smaller screens if necessary */
-      height: 16px; /* Adjust size for smaller screens if necessary */
+  .button-image {
+      width: 45px;
+      height: 45px;
+  }
+
+  .naver-image {
+      width: 55px;  /* 반응형 네이버 이미지 크기 조정 */
+      height: 55px; /* 반응형 네이버 이미지 크기 조정 */
   }
 }
 
@@ -91,11 +112,17 @@
       width: 100%;
       font-size: 14px;
       height: 45px;
+      margin: 15px 0;
   }
 
-  .signup-button img {
-      width: 14px;
-      height: 14px;
+  .button-image {
+      width: 45px;
+      height: 45px;
+  }
+
+  .naver-image {
+      width: 50px;  /* 더 작은 화면에서 네이버 이미지 크기 조정 */
+      height: 50px; /* 더 작은 화면에서 네이버 이미지 크기 조정 */
   }
 
   .login-link {
