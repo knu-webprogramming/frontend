@@ -1,13 +1,15 @@
-.coupon-container {
+.couponbox-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width : 100%;
     text-align: center;
     font-family: 'Arial, sans-serif';
     padding: 20px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .header {
@@ -15,15 +17,15 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: 10px 20px;
+    padding: 20px;
     background-color: #f8f8f8;
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-icon img, .add-icon img {
-    width: 24px;
-    height: 24px;
+.back-icon img, .add-icon img {
+    width: 28px;
+    height: 28px;
     cursor: pointer;
 }
 
@@ -32,6 +34,8 @@
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    margin-top : 0;
+    margin-bottom: 0;
 }
 
 .main-content {
@@ -47,15 +51,82 @@
     font-size: 16px;
 }
 
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    animation: slideIn 0.3s forwards;
+    z-index: 1000; /* 다른 요소 위에 나타나도록 설정 */
+}
+
+.modal-content {
+    padding: 20px;
+}
+
+.modal-text {
+    padding:20px;
+    font-size:20px;
+    margin-bottom: 20px;
+}
+
+.modal-name{
+    font-size:20px;
+}
+
+
+.modal-address{
+    font-size:15px;
+    color:#808080
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.floating-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* 모달 위에 표시되도록 z-index 설정 */
+    background-color: white;
+    border-radius: 50%; 
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 (필요 시) */
+}
+
+.floating-icon img {
+    width: 50px; /* 아이콘 크기 조정 */
+    height: 50px;
+}
+
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .header {
-        padding: 8px 16px;
+        padding: 10px;
     }
 
-    .profile-icon img, .add-icon img {
-        width: 20px;
-        height: 20px;
+    .back-icon img, .add-icon img {
+        width: 26px;
+        height: 26px;
     }
 
     .title {
@@ -65,6 +136,21 @@
     .no-coupons {
         font-size: 14px;
     }
+
+    .modal-text {
+        padding:15px;
+        font-size:16px;
+    }
+
+    .modal-name{
+        font-size:16px;
+    }
+
+    
+    .modal-address{
+        font-size:141px;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -72,9 +158,9 @@
         padding: 6px 12px;
     }
 
-    .profile-icon img, .add-icon img {
-        width: 16px;
-        height: 16px;
+    .back-icon img, .add-icon img {
+        width: 24px;
+        height: 24px;
     }
 
     .title {
@@ -84,4 +170,18 @@
     .no-coupons {
         font-size: 12px;
     }
+
+    .modal-text {
+        padding:10px;
+        font-size:13px;
+    }
+
+    .modal-name{
+        font-size:13px;
+    }
+    
+    .modal-address{
+        font-size:13px;
+    }
+    
 }
