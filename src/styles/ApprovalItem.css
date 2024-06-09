@@ -44,10 +44,10 @@
     height: 24px;
   }
   
-  .approve-button img {
-    filter: hue-rotate(90deg); /* Change this to the desired color */
+  /* .approve-button img {
+    filter: hue-rotate(90deg); 
   }
   
   .reject-button img {
-    filter: hue-rotate(0deg); /* Change this to the desired color */
-  }
+    filter: hue-rotate(0deg); 
+  } */

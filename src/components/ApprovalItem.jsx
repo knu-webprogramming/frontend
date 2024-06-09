@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/ApprovalItem.css';
 import userIcon from '../assets/sample.png';
-import approveIcon from '../assets/sample.png';
-import rejectIcon from '../assets/sample.png';
+import approveIcon from '../assets/approve.png';
+import rejectIcon from '../assets/reject.png';
 
 const ApprovalItem = ({ item }) => {
   return (
