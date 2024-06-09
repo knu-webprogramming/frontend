@@ -1,7 +1,9 @@
 import {React, useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/OwnerProfilePage.css';
-import sampleImage from '../assets/sample.png';
+import couponaddImage from '../assets/couponadd.png';
+import couponImage from '../assets/coupon.png';
+import profileImage from '../assets/profileimage.png';
 
 const OwnerProfilePage = () => {
   const navigate = useNavigate();
@@ -12,14 +14,17 @@ const OwnerProfilePage = () => {
   const [couponBenefit, setCouponBenefit] = useState('');
 
   const handleRedirect = () => {
-    navigate('/');
+    navigate('');
+  };
+  const handleOwnerMainClick = () => {
+    navigate('/owner/main');
   };
 
   return (
-    <div className="container">
+    <div className="ownerprofile-container">
       <h1 className="title">가게 정보 입력</h1>
       <div className="profile-image">
-        <img src={sampleImage} alt="Profile" />
+        <img src={profileImage} alt="Profile" />
       </div>
       <form className="form">
         <div className="form-group">
@@ -61,9 +66,9 @@ const OwnerProfilePage = () => {
         <div className="form-group">
           <label>쿠폰 모양</label>
           <div className="coupon-selection">
-            <img src={sampleImage} alt="Coupon" onClick={handleRedirect} />
+            <img src={couponImage} alt="Coupon" onClick={handleRedirect} />
             <span>or</span>
-            <img src={sampleImage} alt="Add Coupon" onClick={handleRedirect} />
+            <img src={couponaddImage} alt="Add Coupon" onClick={handleRedirect} />
           </div>
         </div>
         <div className="form-group">
@@ -83,7 +88,7 @@ const OwnerProfilePage = () => {
             onChange={(e) => setCouponBenefit(e.target.value)}
           />
         </div>
-        <button type="button" className="submit-button" onClick={handleRedirect}>등록</button>
+        <button type="button" className="submit-button" onClick={handleOwnerMainClick}>등록</button>
       </form>
     </div>
   );
