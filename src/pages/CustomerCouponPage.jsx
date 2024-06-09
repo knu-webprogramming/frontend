@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
-import sample from '../assets/sample.png';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import Header from '../components/Header';
@@ -55,7 +54,7 @@ function CustomerCouponPage() {
           {Array.from({ length: data.maxStamps }).map((_, index) => (
             <img
               key={index}
-              src={sample}
+              src={index < data.currentStamps ? stamp1_activate : stamp1_normal}
               alt="stamp"
               className={`stamp ${index < data.currentStamps ? 'active' : 'inactive'}`}
             />
