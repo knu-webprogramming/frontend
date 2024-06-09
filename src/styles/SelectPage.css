@@ -1,4 +1,4 @@
-.container {
+.select-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,20 +9,20 @@
   box-sizing: border-box;
 }
 
-.header {
-  margin-bottom: 20px;
-}
-
 .logo {
   width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  cursor:pointer;
+}
+
+.text{
+  padding:10px;
 }
 
 .options {
   display: flex;
+  flex-direction: row;
   justify-content: space-around;
-  width: 100%;
   max-width: 600px;
   box-sizing: border-box;
 }
@@ -35,24 +35,21 @@
 }
 
 .icon {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
+  width: 120px;
+  height: 120px;
+  padding:20px;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 600px) {
-  .options {
-      flex-direction: column;
-  }
 
   .option {
       margin-bottom: 20px;
   }
 
   .icon {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
   }
 }
 
@@ -63,8 +60,8 @@
   }
 
   .icon {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
   }
 
   .option {
