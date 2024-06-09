@@ -2,8 +2,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width : 100%;
+  text-align: center;
+  font-family: 'Arial, sans-serif';
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
+  margin:auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-icon img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.title {
+  flex-grow: 1;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .description {
@@ -16,7 +47,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .stamp {
@@ -33,22 +64,37 @@
 }
 
 .stamp-button {
-  background-color: #ff637f;
+  /* background-color: #ff637f;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  margin-bottom: 10px;
+  margin-bottom: 10px; */
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  font-size: 18px;
+  color: white;
+  background-color: #ff637f;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  max-width : 400px;
 }
 
 .coupon-button {
   background-color: #cccccc;
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: not-allowed;
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  max-width : 400px;
 }
 
 /* 반응형 디자인 */
@@ -60,8 +106,8 @@
 
   .stamp-button,
   .coupon-button {
-      width: 100%;
-      font-size: 14px;
+    font-size: 16px;
+    padding: 12px;
   }
 }
 
@@ -77,8 +123,7 @@
 
   .stamp-button,
   .coupon-button {
-      width: 100%;
-      font-size: 12px;
-      padding: 8px 16px;
+    font-size: 14px;
+    padding: 10px;
   }
 }
