@@ -7,6 +7,7 @@
   max-width: 400px;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
 }
 
 .title {
@@ -26,7 +27,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 label {
@@ -35,6 +35,7 @@ label {
 }
 
 input {
+  height:50px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -43,18 +44,20 @@ input {
 }
 
 .submit-button {
+  margin-top:15px;
   width: 100%;
+  height: 50px;
   padding: 15px;
   font-size: 18px;
   color: white;
-  background-color: #f76c6c;
+  background-color: #FF5872; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .submit-button:hover {
-  background-color: #e85a5a;
+  background-color: #ff425e;
 }
 
 /* 반응형 디자인 */
