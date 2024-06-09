@@ -39,6 +39,10 @@ const KakaoMap = () => {
 
           window.kakao.maps.event.addListener(marker, 'click', () => {
             setSelectedPlace(place.place_name);
+            // 장소에 대한 정보를 콘솔에 출력
+            console.log(`Place Name: ${place.place_name}`);
+            console.log(`Address: ${place.address_name}`);
+            console.log(`Phone: ${place.phone}`);
             setIsModalOpen(true);
           });
 
