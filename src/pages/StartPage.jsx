@@ -20,6 +20,7 @@ function StartPage() {
       <div><Link to="/owner/profile/modify">14. OwnerProfileModifyPage</Link></div>
       <div><Link to="/owner/main">15. OwnerMainPage</Link></div>
       <div><Link to="/owner/approval">16. OwnerApprovalPage</Link></div>
+      <div><Link to="/owner/map">17. OwnerMapPage</Link></div>
     </div>
   );
 }

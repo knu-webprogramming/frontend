@@ -4,6 +4,11 @@
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* 중앙에 배치 */
 }
 
 .title {
@@ -19,6 +24,7 @@
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  cursor: pointer; /* Change cursor to pointer */
 }
 
 .form {
@@ -30,25 +36,62 @@
 .form-group {
   margin-bottom: 15px;
   width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
+  width: 120px; /* 라벨의 너비를 지정 */
+  margin-right: 10px;
+  text-align: right; /* 라벨을 오른쪽 정렬 */
 }
 
 .form-group input,
 .form-group select {
-  width: 100%;
+  width: calc(100% - 130px); /* 라벨 너비와 margin을 제외한 너비 */
   padding: 10px;
   font-size: 16px;
   box-sizing: border-box;
+  border-radius: 10px; /* 더 둥글게 */
+  border: 1px solid #ccc;
+}
+
+.store-name-group input,
+.address-group input {
+  background-color: #f0f0f0; /* 연한 회색 배경색 */
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.input-with-icon input {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.glasses-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .coupon-selection {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: calc(100% - 130px); /* 라벨 너비와 margin을 제외한 너비 */
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .coupon-selection img {
@@ -66,7 +109,7 @@
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 10px; /* 더 둥글게 */
 }
 
 .submit-button:hover {
@@ -130,4 +173,39 @@
   .submit-button {
       padding: 10px;
   }
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

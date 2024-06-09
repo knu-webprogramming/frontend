@@ -1,7 +1,11 @@
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/OwnerProfilePage.css';
+import defaultProfileImage from '../assets/profile-select.png';
+import glassesImage from '../assets/glasses.png';
 import sampleImage from '../assets/sample.png';
+import stamp1 from '../assets/stamp1-activate.png';
+import KakaoMapProfile from '../components/KakaoMapProfile';
 
 const OwnerProfilePage = () => {
   const navigate = useNavigate();
@@ -10,34 +14,78 @@ const OwnerProfilePage = () => {
   const [ownerName, setOwnerName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [couponBenefit, setCouponBenefit] = useState('');
+  const [isMapOpen, setIsMapOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
 
   const handleRedirect = () => {
     navigate('/');
+  };
+
+  const handleMapRedirect = () => {
+    console.log('handleMapRedirect called');
+    setIsMapOpen(true);
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setProfileImage(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  function handlePlaceSelect(place) {
+    console.log('handlePlaceSelect called with:', place);
+    if (place) {
+      setStoreName(place.name);
+      setAddress(place.address);
+    }
+    setIsMapOpen(false);
+  };
+
+  const closeMap = () => {
+    setIsMapOpen(false);
   };
 
   return (
     <div className="container">
       <h1 className="title">가게 정보 입력</h1>
       <div className="profile-image">
-        <img src={sampleImage} alt="Profile" />
+        <input
+          type="file"
+          id="profileImage"
+          style={{ display: 'none' }}
+          onChange={handleImageChange}
+        />
+        <label htmlFor="profileImage" className="profile-pic-label">
+          {profileImage ? (
+            <img src={profileImage} alt="Profile" className="profile-pic" />
+          ) : (
+            <img src={defaultProfileImage} alt="Default Profile" className="profile-pic" />
+          )}
+        </label>
       </div>
       <form className="form">
-        <div className="form-group">
+        <div className="form-group store-name-group">
           <label>가게명</label>
           <input
             type="text"
             placeholder="가게명을 입력하세요"
             value={storeName}
-            onChange={(e) => setStoreName(e.target.value)}
+            readOnly
+          />
+          <img
+            src={glassesImage}
+            alt="Search Store"
+            className="glasses-icon"
+            onClick={handleMapRedirect}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group address-group">
           <label>주소</label>
           <input
             type="text"
             placeholder="주소를 입력하세요"
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            readOnly
           />
         </div>
         <div className="form-group">
@@ -61,7 +109,7 @@ const OwnerProfilePage = () => {
         <div className="form-group">
           <label>쿠폰 모양</label>
           <div className="coupon-selection">
-            <img src={sampleImage} alt="Coupon" onClick={handleRedirect} />
+            <img src={stamp1} alt="Coupon" onClick={handleRedirect} />
             <span>or</span>
             <img src={sampleImage} alt="Add Coupon" onClick={handleRedirect} />
           </div>
@@ -85,6 +133,14 @@ const OwnerProfilePage = () => {
         </div>
         <button type="button" className="submit-button" onClick={handleRedirect}>등록</button>
       </form>
+      {isMapOpen && (
+        <div className="modal" onClick={closeMap}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={closeMap}>&times;</span>
+            <KakaoMapProfile onPlaceSelect={handlePlaceSelect} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
