@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/LoginPage.css';
-import couponImage from "../assets/sample.png";
-import kakaoImage from "../assets/sample.png";
-import naverImage from "../assets/sample.png";
-import googleImage from "../assets/sample.png";
+import couponImage from "../assets/logo.png";
+import kakaoImage from "../assets/kakao.svg";
+import naverImage from "../assets/naver.JPG";
+import googleImage from "../assets/google.png"
 
 function LoginPage () {
   const handleLoginRedirect = () => {
@@ -11,23 +11,23 @@ function LoginPage () {
   };
 
   return (
-    <div className="signup-container">
-      <img src={couponImage} alt="쿠폰모아" className="logo" />
+    <div className="login-container">
+      <img src={couponImage} alt="쿠폰모아" className="logo" onClick={handleLoginRedirect} />
       <div className="button-container">
-        <button className="signup-button kakao" onClick={handleLoginRedirect}>
+        <button className="login-button kakao" onClick={handleLoginRedirect}>
           <img src={kakaoImage} alt="카카오톡" />
-          카카오톡으로 로그인하기
+          <div className="button-text">카카오로 로그인하기</div>
         </button>
-        <button className="signup-button naver" onClick={handleLoginRedirect}>
+        <button className="login-button naver" onClick={handleLoginRedirect}>
           <img src={naverImage} alt="네이버" />
-          네이버로 로그인하기
+          <div className="button-text">네이버로 로그인하기</div>
         </button>
-        <button className="signup-button google" onClick={handleLoginRedirect}>
+        <button className="login-button google" onClick={handleLoginRedirect}>
           <img src={googleImage} alt="구글" />
-          구글로 로그인하기
+          <div className="button-text">구글로 로그인하기</div>
         </button>
       </div>
-      <a href="/" className="signup-link">회원가입</a>
+      <a href="/signup" className="signup-link">회원가입</a>
     </div>
   );
 };
