@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/Header.css';
-import arrow from '../assets/sample.png';
+import arrow from '../assets/arrow.png';
 
 function Header({ title }) {
   const navigate = useNavigate();

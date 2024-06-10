@@ -1,6 +1,18 @@
 .coupon-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.header {
+  flex-shrink: 0;
+  height: 6.25vh; /* Set header height to 1/16 of the viewport height */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -41,6 +53,7 @@
   font-size: 16px;
   margin-bottom: 20px;
   text-align: center;
+  font-weight: normal; /* Ensure the text is not bold */
 }
 
 .stamps {
@@ -51,8 +64,8 @@
 }
 
 .stamp {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
 }
 
 .stamp.active {
@@ -65,10 +78,11 @@
 
 .stamp-button {
   /* background-color: #ff637f;
+
   color: white;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 15px;
+  font-size: 18px;
   cursor: pointer;
   margin-bottom: 10px; */
   width: 100%;
@@ -82,9 +96,20 @@
   cursor: pointer;
   margin-bottom: 20px;
   max-width : 400px;
+
 }
 
-.coupon-button {
+.stamp-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.coupon-button:enabled {
+  background-color: #ff637f;
+  cursor: pointer;
+}
+
+.coupon-button:disabled {
   background-color: #cccccc;
   color: white;
   border: none;
@@ -100,8 +125,8 @@
 /* 반응형 디자인 */
 @media (max-width: 768px) {
   .stamp {
-      width: 40px;
-      height: 40px;
+    width: 50px;
+    height: 50px;
   }
 
   .stamp-button,
@@ -113,12 +138,12 @@
 
 @media (max-width: 480px) {
   .description {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   .stamp {
-      width: 30px;
-      height: 30px;
+    width: 40px;
+    height: 40px;
   }
 
   .stamp-button,

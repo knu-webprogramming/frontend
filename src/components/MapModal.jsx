@@ -1,29 +1,23 @@
 import React from 'react';
+import '../styles/MapModal.css';
 
-const MapModal = ({ isOpen, onClose, placeName, onConfirm }) => {
+const MapModal = ({ isOpen, onClose, placeName, address, onConfirm }) => {
   if (!isOpen) return null;
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: 'rgba(0,0,0,0.5)',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}>
-      <div style={{
-        backgroundColor: 'white',
-        padding: '20px',
-        borderRadius: '5px',
-        textAlign: 'center',
-      }}>
-        <p>{`${placeName}을(를) 쿠폰함에 추가하시겠습니까?`}</p>
-        <button onClick={onConfirm} style={{ marginRight: '10px' }}>확인</button>
-        <button onClick={onClose}>취소</button>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <p>아래 매장을 쿠폰함에 추가하시겠습니까?</p>
+        <p><strong>매장명:</strong> {placeName}</p>
+        <p><strong>주소:</strong> {address}</p>
+        <div className="modal-buttons">
+          <button className="confirm" onClick={onConfirm}>
+            확인
+          </button>
+          <button className="cancel" onClick={onClose}>
+            취소
+          </button>
+        </div>
       </div>
     </div>
   );

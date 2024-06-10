@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/OwnerProfilePage.css';
 import couponaddImage from '../assets/couponadd.png';
@@ -12,6 +12,8 @@ const OwnerProfilePage = () => {
   const [ownerName, setOwnerName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [couponBenefit, setCouponBenefit] = useState('');
+  const [isMapOpen, setIsMapOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
 
   const handleRedirect = () => {
     navigate('');
@@ -20,29 +22,71 @@ const OwnerProfilePage = () => {
     navigate('/owner/main');
   };
 
+  const handleMapRedirect = () => {
+    console.log('handleMapRedirect called');
+    setIsMapOpen(true);
+  };
+
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setProfileImage(URL.createObjectURL(e.target.files[0]));
+    }
+  };
+
+  function handlePlaceSelect(place) {
+    console.log('handlePlaceSelect called with:', place);
+    if (place) {
+      setStoreName(place.name);
+      setAddress(place.address);
+    }
+    setIsMapOpen(false);
+  };
+
+  const closeMap = () => {
+    setIsMapOpen(false);
+  };
+
   return (
     <div className="ownerprofile-container">
       <h1 className="title">가게 정보 입력</h1>
       <div className="profile-image">
-        <img src={profileImage} alt="Profile" />
+        <input
+          type="file"
+          id="profileImage"
+          style={{ display: 'none' }}
+          onChange={handleImageChange}
+        />
+        <label htmlFor="profileImage" className="profile-pic-label">
+          {profileImage ? (
+            <img src={profileImage} alt="Profile" className="profile-pic" />
+          ) : (
+            <img src={defaultProfileImage} alt="Default Profile" className="profile-pic" />
+          )}
+        </label>
       </div>
       <form className="form">
-        <div className="form-group">
+        <div className="form-group store-name-group">
           <label>가게명</label>
           <input
             type="text"
             placeholder="가게명을 입력하세요"
             value={storeName}
-            onChange={(e) => setStoreName(e.target.value)}
+            readOnly
+          />
+          <img
+            src={glassesImage}
+            alt="Search Store"
+            className="glasses-icon"
+            onClick={handleMapRedirect}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group address-group">
           <label>주소</label>
           <input
             type="text"
             placeholder="주소를 입력하세요"
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            readOnly
           />
         </div>
         <div className="form-group">
@@ -90,6 +134,14 @@ const OwnerProfilePage = () => {
         </div>
         <button type="button" className="submit-button" onClick={handleOwnerMainClick}>등록</button>
       </form>
+      {isMapOpen && (
+        <div className="modal" onClick={closeMap}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={closeMap}>&times;</span>
+            <KakaoMapProfile onPlaceSelect={handlePlaceSelect} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
