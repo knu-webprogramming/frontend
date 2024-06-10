@@ -4,6 +4,7 @@ import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import Header from '../components/Header';
+import backImage from '../assets/back.png';
 
 function CustomerCouponPage() {
   const navigate = useNavigate();
@@ -42,6 +43,10 @@ function CustomerCouponPage() {
   const handleRedirect = () => {
     navigate('/');
   };
+  const handleCouponClick = () => {
+    navigate('/');
+  };
+
 
   return (
     <div className="coupon-container">

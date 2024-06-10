@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/OwnerProfilePage.css';
-import defaultProfileImage from '../assets/profile-select.png';
-import glassesImage from '../assets/glasses.png';
-import sampleImage from '../assets/sample.png';
-import stamp1 from '../assets/stamp1-activate.png';
-import KakaoMapProfile from '../components/KakaoMapProfile';
+import couponaddImage from '../assets/couponadd.png';
+import couponImage from '../assets/coupon.png';
+import profileImage from '../assets/profileimage.png';
 
 const OwnerProfilePage = () => {
   const navigate = useNavigate();
@@ -18,7 +16,10 @@ const OwnerProfilePage = () => {
   const [profileImage, setProfileImage] = useState(null);
 
   const handleRedirect = () => {
-    navigate('/');
+    navigate('');
+  };
+  const handleOwnerMainClick = () => {
+    navigate('/owner/main');
   };
 
   const handleMapRedirect = () => {
@@ -46,7 +47,7 @@ const OwnerProfilePage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="ownerprofile-container">
       <h1 className="title">가게 정보 입력</h1>
       <div className="profile-image">
         <input
@@ -109,9 +110,9 @@ const OwnerProfilePage = () => {
         <div className="form-group">
           <label>쿠폰 모양</label>
           <div className="coupon-selection">
-            <img src={stamp1} alt="Coupon" onClick={handleRedirect} />
+            <img src={couponImage} alt="Coupon" onClick={handleRedirect} />
             <span>or</span>
-            <img src={sampleImage} alt="Add Coupon" onClick={handleRedirect} />
+            <img src={couponaddImage} alt="Add Coupon" onClick={handleRedirect} />
           </div>
         </div>
         <div className="form-group">
@@ -131,7 +132,7 @@ const OwnerProfilePage = () => {
             onChange={(e) => setCouponBenefit(e.target.value)}
           />
         </div>
-        <button type="button" className="submit-button" onClick={handleRedirect}>등록</button>
+        <button type="button" className="submit-button" onClick={handleOwnerMainClick}>등록</button>
       </form>
       {isMapOpen && (
         <div className="modal" onClick={closeMap}>

@@ -1,14 +1,27 @@
 import React, { useState } from 'react';
+import { useNavigate, } from 'react-router-dom';
 import '../styles/CustomerProfileModifyPage.css';
 import defaultProfileImage from '../assets/sample.png';
 
 function CustomerProfileModifyPage() {
   const [profileImage, setProfileImage] = useState(null);
+  const [nickname,setNickname]=useState('');
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setProfileImage(URL.createObjectURL(e.target.files[0]));
     }
+  };
+
+  const handleNicknameChange = (e) => {
+    setNickname(e.target.value);
+  };
+
+
+
+  const handleCustomerMainClick = () => {
+    navigate('/customer/main',{ state: { nickname } });
   };
 
   return (
@@ -31,9 +44,15 @@ function CustomerProfileModifyPage() {
       </div>
       <div className="input-group">
         <label htmlFor="nickname">닉네임</label>
-        <input type="text" id="nickname" placeholder="안뇽" />
+        <input 
+        type="text" 
+        id="nickname" 
+        placeholder=""
+        value={nickname}
+        onChange={handleNicknameChange}
+        />
       </div>
-      <button className="submit-button">수정</button>
+      <button className="submit-button" onClick={handleCustomerMainClick}>수정</button>
     </div>
   );
 }

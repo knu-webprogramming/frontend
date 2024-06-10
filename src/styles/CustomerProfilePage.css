@@ -8,7 +8,7 @@
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
-  justify-content: space-between;
+  position: relative;
 }
 
 .title {
@@ -42,9 +42,7 @@
 .input-group {
   width: 100%;
   display: flex;
-  flex-direction: row; /* Arrange label and input in the same row */
-  align-items: center;
-  margin-bottom: 20px;
+  flex-direction: column;
 }
 
 .input-group label {
@@ -53,8 +51,8 @@
   white-space: nowrap;
 }
 
-.input-group input {
-  flex-grow: 1;
+input {
+  height:50px;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ddd;
@@ -63,18 +61,20 @@
 }
 
 .submit-button {
+  margin-top:15px;
   width: 100%;
+  height: 50px;
   padding: 15px;
   font-size: 18px;
   color: white;
-  background-color: #f76c6c;
+  background-color: #FF5872; 
   border: none;
   border-radius: 8px; /* Adjust the border-radius */
   cursor: pointer;
 }
 
 .submit-button:hover {
-  background-color: #ff637f;
+  background-color: #ff425e;
 }
 
 /* 반응형 디자인 */

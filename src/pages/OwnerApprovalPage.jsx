@@ -1,6 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ApprovalItem from '../components/ApprovalItem';
 import '../styles/OwnerApprovalPage.css';
+import notificationImage from '../assets/notification.png';
+import backImage from '../assets/back.png';
+
 
 const OwnerApprovalPage = () => {
   const items = [
@@ -12,16 +16,14 @@ const OwnerApprovalPage = () => {
 
   return (
     <div className="approval-page">
-      <header>
-        <button className="back-button" onClick={() => window.location.href = '/'}>
-          <img src="../assets/sample.png" alt="back"/>
-        </button>
-        <h1>승인 대기</h1>
-        <div className="notification">
-          <img src="../assets/sample.png" alt="notification" />
+      <div className="header">
+        <img src = {backImage} className="back-icon" onClick={() => window.location.href = '/owner/main'}/>
+        <h1 className="title">승인대기</h1>
+      </div>
+              <div className="notification">
+          <img src={notificationImage} alt="notification" />
           <span>4건</span>
         </div>
-      </header>
       <main>
         {items.map(item => (
           <ApprovalItem key={item.id} item={item} />

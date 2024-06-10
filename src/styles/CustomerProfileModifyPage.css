@@ -11,7 +11,7 @@
 
 .title {
   font-size: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 .profile-pic {
@@ -26,7 +26,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 label {
@@ -43,18 +42,19 @@ input {
 }
 
 .submit-button {
+  margin-top:15px;
   width: 100%;
   padding: 15px;
   font-size: 18px;
   color: white;
-  background-color: #f76c6c;
+  background-color: #FF5872;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .submit-button:hover {
-  background-color: #e85a5a;
+  background-color: #ff425e;
 }
 
 /* 반응형 디자인 */
