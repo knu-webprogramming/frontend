@@ -112,6 +112,7 @@
   cursor: pointer;
   border-radius: 5px;
   margin-bottom:15px;
+}
 
 .submit-button:hover {
   background-color: #ff425e;
