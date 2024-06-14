@@ -64,48 +64,84 @@
   cursor: pointer;
 }
 
+/* 모달 스타일 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  width: 90%;
+  max-width: 400px; /* 기본 모달 최대 너비 */
+  box-sizing: border-box;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .customer-main-page {
-      padding: 10px;
+  .owner-main-page {
+    padding: 10px;
   }
 
   .header {
-      padding: 10px;
+    padding: 10px;
   }
 
   .profile-icon, .notification-icon {
-      width: 40px;  }
+    width: 40px;
+  }
 
   .avatar img {
-      width: 120px;
-      height: 120px;
+    width: 120px;
+    height: 120px;
   }
 
   .welcome-text {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   .logout-button {
-      font-size: 14px;
+    font-size: 14px;
+  }
+
+  .modal {
+    width: 80%;
+    max-width: 350px; /* 작은 화면에서 모달 최대 너비 */
   }
 }
 
 @media (max-width: 480px) {
   .profile-icon, .notification-icon {
-      width: 30px;
+    width: 30px;
   }
 
   .avatar img {
-      width: 100px;
-      height: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .welcome-text {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   .logout-button {
-      font-size: 12px;
+    font-size: 12px;
+  }
+
+  .modal {
+    width: 90%;
+    max-width: 300px; /* 더 작은 화면에서 모달 최대 너비 */
   }
 }

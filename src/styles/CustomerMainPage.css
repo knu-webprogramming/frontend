@@ -17,6 +17,7 @@
   position: absolute;
   top: 0;
   box-sizing: border-box;
+  z-index: 1000; /* z-index를 추가하여 다른 요소보다 위에 오도록 설정 */
 }
 
 .profile-icon, .couponlist-icon {
@@ -75,8 +76,10 @@
   }
 
   .profile-icon, .couponlist-icon {
-    width: 40px;
-}
+    width: 50px;
+    cursor: pointer;
+    pointer-events: auto; /* pointer-events를 추가 */
+  }
 
   .avatar img {
       width: 120px;

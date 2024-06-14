@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
+import QRCode from 'react-qr-code';
 import '../styles/OwnerMainPage.css';
 import logoexImage from '../assets/cafelogo.png';
 import profileImagePlaceholder from '../assets/user.png';
@@ -11,7 +12,8 @@ const OwnerMainPage = () => {
   const navigate = useNavigate();
   const token = useSelector((state) => state.token.token);
   const [profileData, setProfileData] = useState({ name: '점주', profileImageUrl: profileImagePlaceholder });
-  const [avatarUrl, setAvatarUrl] = useState(null); // 기본 avatar 이미지
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [showQRCode, setShowQRCode] = useState(false);
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -29,7 +31,6 @@ const OwnerMainPage = () => {
             profileImageUrl: profileImagePlaceholder,
           });
 
-          // avatarUrl 상태 업데이트
           if (response.data.profile_image_url) {
             setAvatarUrl(`http://${response.data.profile_image_url}`);
           }
@@ -47,11 +48,15 @@ const OwnerMainPage = () => {
   };
 
   const handleApprovalClick = () => {
-    navigate('/owner/approval');
+    setShowQRCode(true);
   };
 
   const handleLoginClick = () => {
     navigate('/login');
+  };
+
+  const closeModal = () => {
+    setShowQRCode(false);
   };
 
   return (
@@ -63,7 +68,7 @@ const OwnerMainPage = () => {
 
       <div className="content">
         <div className="avatar">
-          <img src={avatarUrl} alt="Avatar" /> {/* avatarUrl 사용 */}
+          <img src={avatarUrl} alt="Avatar" />
         </div>
         <div className="welcome-text">
           <span className="highlight">{profileData.name}</span> 점주님,
@@ -74,6 +79,14 @@ const OwnerMainPage = () => {
           <span className="logout-button" onClick={handleLoginClick}>로그아웃</span>
         </div>
       </div>
+
+      {showQRCode && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <QRCode value="http://www.naver.com" size={256} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

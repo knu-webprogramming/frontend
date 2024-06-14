@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import MapModal from './MapModal';
 import '../styles/KakaoMap.css';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const KakaoMap = () => {
+  const token = useSelector((state) => state.token.token);
+  const navigate = useNavigate();
   const [map, setMap] = useState(null);
   const [keyword, setKeyword] = useState('');
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -28,12 +33,21 @@ const KakaoMap = () => {
     };
     document.head.appendChild(script);
 
-    // JSON 파일 불러오기 (실제로는 등록 매장 목록 조회 API 호출)
-    fetch('/data/places.json')
-      .then(response => response.json())
-      .then(data => setPlaces(data))
-      .catch(error => console.error('Error fetching places data:', error));
-  }, []);
+    const fetchPlaces = async () => {
+      try {
+        const response = await axios.get('http://3.39.232.19:8080/shop/all', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        setPlaces(response.data);
+      } catch (error) {
+        console.error('Error fetching places data:', error);
+      }
+    };
+
+    fetchPlaces();
+  }, [token]);
 
   const handleSearch = () => {
     if (map && keyword) {
@@ -59,6 +73,7 @@ const KakaoMap = () => {
             phone: place.phone,
             lat: place.y,
             lng: place.x,
+            shop_id: place.shop_id // shop_id 추가
           });
           setIsModalOpen(true);
         });
@@ -73,10 +88,23 @@ const KakaoMap = () => {
     setIsModalOpen(false);
   };
 
-  const handleConfirmModal = () => {
-    console.log(`${selectedPlace} 추가됨`);
-    console.log(`Place Info: ${JSON.stringify(placeInfo)}`);
-    setIsModalOpen(false);
+  const handleConfirmModal = async () => {
+    if (placeInfo && placeInfo.shop_id) {
+      try {
+        const response = await axios.post(`http://3.39.232.19:8080/coupon/${placeInfo.shop_id}`, {}, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        if (response.status === 200) {
+          console.log('Coupon added successfully');
+          setIsModalOpen(false);
+          navigate('/customer/coupon-box');
+        }
+      } catch (error) {
+        console.error('Error adding coupon:', error);
+      }
+    }
   };
 
   const handleCloseNoResultsModal = () => {
