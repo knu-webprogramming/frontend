@@ -34,7 +34,7 @@
 .avatar img {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  object-fit: cover; /* 이미지 전체가 다 뜨게 함 */
 }
 
 .welcome-text {
