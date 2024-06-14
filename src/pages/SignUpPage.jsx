@@ -24,7 +24,8 @@ function ButtonComponent({ imageSrc, imageAlt, imageClassName, text, onClick, cl
 
 function SignUpButtons() {
   const handleKakaoLogin = () => {
-    window.location.href = 'http://localhost:3001/auth/kakao';
+    const redirectUri = 'http://localhost:3000/kakao/callback'; // 콜백 URL을 설정합니다
+    window.location.href = `http://3.39.232.19:8080/oauth2/authorization/kakao`;
   };
 
   const handleLoginRedirect = () => {

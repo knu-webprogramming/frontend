@@ -1,15 +1,40 @@
-import React from 'react';
-import { useNavigate,useLocation } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 import '../styles/CustomerMainPage.css';
 import sampleImage from '../assets/user.png';
-import profileImage from '../assets/user.png';
+import profileImagePlaceholder from '../assets/user.png';
 import couponlistImage from '../assets/couponlist.png';
 
 const CustomerMainPage = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-  const nickname = location.state?.nickname || '고객';
-  
+  const token = useSelector((state) => state.token.token);
+  const [profileData, setProfileData] = useState({ name: '고객', profileImageUrl: profileImagePlaceholder });
+
+  useEffect(() => {
+    const fetchProfileData = async () => {
+      try {
+        const response = await axios.get('http://3.39.232.19:8080/customer', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        if (response.status === 200) {
+          setProfileData({
+            name: response.data.name,
+            profileImageUrl: `http://${response.data.profileImageUrl}`,
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching profile data:', error);
+      }
+    };
+
+    fetchProfileData();
+  }, [token]);
+
   const handleModifyCustomerClick = () => {
     navigate('/customer/profile/modify');
   };
@@ -29,17 +54,17 @@ const CustomerMainPage = () => {
   return (
     <div className="customer-main-page">
       <div className="header">
-        <img src={profileImage} alt="Profile" className="profile-icon" onClick={handleModifyCustomerClick} />
+        <img src={profileData.profileImageUrl} alt="Profile" className="profile-icon" onClick={handleModifyCustomerClick} />
         <h1 className="title" onClick={handleClick}>쿠폰모아</h1>
-        <img src={couponlistImage} alt="coupinlist" className="couponlist-icon" onClick={handleCouponListClick} />
-      </div> 
-      
+        <img src={couponlistImage} alt="Coupon List" className="couponlist-icon" onClick={handleCouponListClick} />
+      </div>
+
       <div className="content">
         <div className="avatar">
-          <img src={sampleImage} alt="Avatar" />
+          <img src={profileData.profileImageUrl} alt="Avatar" />
         </div>
         <div className="welcome-text">
-          <span className="highlight" onClick={handleModifyCustomerClick}>{nickname}</span> 고객님,
+          <span className="highlight" onClick={handleModifyCustomerClick}>{profileData.name}</span> 고객님,
           <br />
           안녕하세요
         </div>

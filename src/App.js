@@ -17,6 +17,7 @@ import OwnerProfileModifyPage from './pages/OwnerProfileModifyPage';
 import OwnerApprovalPage from './pages/OwnerApprovalPage';
 import KakaoMapProfile from './components/KakaoMapProfile';
 import KakaoMap from './components/KakaoMap';
+import KakaoCallback from './components/KakaoCallBack';
 
 function App() {
   return (
@@ -24,7 +25,7 @@ function App() {
       <Routes>
         <Route path="/" element={<StartPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/signup/select" element={<SelectPage />} />
+        <Route path="/login/select" element={<SelectPage />} />
         <Route path="/signup/complete" element={<SignUpCompletePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/customer/profile" element={<CustomerProfilePage />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/owner/main" element={<OwnerMainPage />} />
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
+        <Route path="/kakao-callback" element={<KakaoCallback/>} />
       </Routes>
     </Router>
   );

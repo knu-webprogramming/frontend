@@ -5,10 +5,34 @@ import kakaoImage from "../assets/kakao.svg";
 import naverImage from "../assets/naver.JPG";
 import googleImage from "../assets/google.png"
 
+function ImageComponent({ src, alt, className }) {
+  return <img src={src} alt={alt} className={`button-image ${className}`} />;
+}
+
+function TextComponent({ text }) {
+  return <span className="button-text">{text}</span>;
+}
+
+function ButtonComponent({ imageSrc, imageAlt, imageClassName, text, onClick, className }) {
+  return (
+    <button className={`signup-button ${className}`} onClick={onClick}>
+      <ImageComponent src={imageSrc} alt={imageAlt} className={imageClassName} />
+      <TextComponent text={text} />
+    </button>
+  );
+}
+
+
 function LoginPage () {
   const handleLoginRedirect = () => {
     window.location.href = '/';
   };
+
+  const handleKakaoLogin = () => {
+    window.location.href = `http://3.39.232.19:8080/oauth2/authorization/kakao`;
+  };
+
+  
 
   return (
     <div className="login-container">
