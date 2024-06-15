@@ -25,6 +25,7 @@ const WebcamComponent = ({ onCapture }) => {
           const code = jsQR(imageData.data, imageData.width, imageData.height);
           if (code) {
             setQrData(code.data);
+            window.location.href = code.data; // QR 코드 데이터로 리다이렉트
           }
         }
       }
