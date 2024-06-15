@@ -1,15 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import StartPage from './pages/StartPage';
-import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
 import SelectPage from './pages/SelectPage';
 import SignUpCompletePage from './pages/SignUpCompletePage'
-import LoginPage from './pages/LoginPage';
 import CustomerProfilePage from './pages/CustomerProfilePage';
 import CustomerMainPage from './pages/CustomerMainPage';
 import CustomerCouponBoxPage from './pages/CustomerCouponBoxPage';
 import CustomerProfileModifyPage from './pages/CustomerProfileModifyPage';
-import CustomerMapPage from './pages/CustomerMapPage';
 import CustomerCouponPage from './pages/CustomerCouponPage';
 import OwnerProfilePage from './pages/OwnerProfilePage';
 import OwnerMainPage from './pages/OwnerMainPage';
@@ -26,10 +24,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/login/select" element={<SelectPage />} />
         <Route path="/signup/complete" element={<SignUpCompletePage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/customer/profile" element={<CustomerProfilePage />} />
         <Route path="/customer/main" element={<CustomerMainPage />} />
         <Route path="/customer/coupon-box" element={<CustomerCouponBoxPage />} />

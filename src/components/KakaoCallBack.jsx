@@ -16,7 +16,7 @@ const KakaoCallBack = () => {
         if (token) {
           console.log('Token:', token);
           dispatch(setToken(token)); // 토큰을 Redux 상태에 저장
-          navigate('/signup/complete');
+          navigate('/login/select');
         } else {
           console.log('Token not found in the URL');
         }

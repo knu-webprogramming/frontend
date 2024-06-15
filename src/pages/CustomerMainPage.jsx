@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import '../styles/CustomerMainPage.css';
 import sampleImage from '../assets/user.png';
 import profileImagePlaceholder from '../assets/user.png';
 import couponlistImage from '../assets/couponlist.png';
+import { clearToken } from '../redux/slices/tokenSlice';
 
 const CustomerMainPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.token.token);
   const [profileData, setProfileData] = useState({ name: '고객', profileImageUrl: profileImagePlaceholder });
 
@@ -44,7 +46,8 @@ const CustomerMainPage = () => {
   };
 
   const handleLoginClick = () => {
-    navigate('/login');
+    dispatch(clearToken());
+    navigate('/');
   };
 
   const handleClick = () => {

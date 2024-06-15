@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import QRCode from 'react-qr-code';
 import '../styles/OwnerMainPage.css';
 import logoexImage from '../assets/cafelogo.png';
 import profileImagePlaceholder from '../assets/user.png';
 import notificationImage from '../assets/mainnotification.png';
+import { clearToken } from '../redux/slices/tokenSlice';
 
 const OwnerMainPage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const token = useSelector((state) => state.token.token);
   const [profileData, setProfileData] = useState({ name: '점주', profileImageUrl: profileImagePlaceholder });
   const [avatarUrl, setAvatarUrl] = useState(null);
@@ -52,7 +54,8 @@ const OwnerMainPage = () => {
   };
 
   const handleLoginClick = () => {
-    navigate('/login');
+    dispatch(clearToken());
+    navigate('/');
   };
 
   const closeModal = () => {
