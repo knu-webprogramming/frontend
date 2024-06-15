@@ -44,7 +44,7 @@ const WebcamComponent = ({ onCapture }) => {
         videoConstraints={videoConstraints}
         className="webcam"
       />
-      {qrData && <div className="qr-data">QR Code Data: {qrData}</div>}
+      {qrData && <div className="qr-data">QR 코드가 인식되었습니다!</div>}
     </div>
   );
 };
