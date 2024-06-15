@@ -4,6 +4,7 @@
   height: 100vh;
   box-sizing: border-box;
   align-items: center;
+  padding-top: 20px; /* 위쪽에 공백 추가 */
 }
 
 .header {
