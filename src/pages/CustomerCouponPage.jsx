@@ -4,7 +4,6 @@ import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import Header from '../components/Header';
-import backImage from '../assets/back.png';
 
 function CustomerCouponPage() {
   const navigate = useNavigate();
@@ -24,13 +23,7 @@ function CustomerCouponPage() {
   }, []);
 
   const handleAddStamp = () => {
-    setData(prevData => {
-      const newCurrentStamps = prevData.currentStamps + 1;
-      return {
-        ...prevData,
-        currentStamps: newCurrentStamps > prevData.maxStamps ? prevData.maxStamps : newCurrentStamps,
-      };
-    });
+    navigate('/customer/coupon/camera'); // 카메라 페이지로 이동
   };
 
   const handleCouponUse = () => {
@@ -39,14 +32,6 @@ function CustomerCouponPage() {
       currentStamps: 0,
     }));
   };
-
-  const handleRedirect = () => {
-    navigate('/');
-  };
-  const handleCouponClick = () => {
-    navigate('/');
-  };
-
 
   return (
     <div className="coupon-container">

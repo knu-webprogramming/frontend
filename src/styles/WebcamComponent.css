@@ -1,0 +1,36 @@
+.webcam-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .webcam {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .capture-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .capture-button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (min-width: 768px) {
+    .capture-button {
+      font-size: 1.25rem;
+      padding: 15px 30px;
+    }
+  }

@@ -18,6 +18,7 @@ import OwnerApprovalPage from './pages/OwnerApprovalPage';
 import KakaoMapProfile from './components/KakaoMapProfile';
 import KakaoMap from './components/KakaoMap';
 import KakaoCallback from './components/KakaoCallBack';
+import WebcamPage from './pages/WebcamPage';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/customer/profile/modify" element={<CustomerProfileModifyPage />} />
         <Route path="/customer/map" element={<KakaoMap />} />
         <Route path="/customer/coupon" element={<CustomerCouponPage />} />
+        <Route path="/customer/coupon/camera" element={<WebcamPage />} />
         <Route path="/owner/profile" element={<OwnerProfilePage />} />
         <Route path="/owner/map" element={<KakaoMapProfile/>}/>
         <Route path="/owner/main" element={<OwnerMainPage />} />
