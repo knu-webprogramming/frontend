@@ -1,14 +1,18 @@
 import React, { useRef, useCallback } from 'react';
 import Webcam from 'react-webcam';
-import '../styles/WebcamComponent.css'; // 추가된 부분
+import '../styles/WebcamComponent.css';
 
 const WebcamComponent = ({ onCapture }) => {
   const webcamRef = useRef(null);
 
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    onCapture(imageSrc); // 사진을 찍고 부모 컴포넌트로 전달
+    onCapture(imageSrc);
   }, [webcamRef, onCapture]);
+
+  const videoConstraints = {
+    facingMode: { exact: "environment" }
+  };
 
   return (
     <div className="webcam-container">
@@ -16,6 +20,7 @@ const WebcamComponent = ({ onCapture }) => {
         audio={false}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
+        videoConstraints={videoConstraints}
         className="webcam"
       />
       <button className="capture-button" onClick={capture}>Capture photo</button>
