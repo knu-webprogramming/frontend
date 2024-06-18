@@ -24,7 +24,7 @@ function ButtonComponent({ imageSrc, imageAlt, imageClassName, text, onClick, cl
 
 function SignUpButtons() {
   const handleKakaoLogin = () => {
-    window.location.href = `http://3.39.232.19:8080/oauth2/authorization/kakao`;
+    window.location.href = `https://api.couponmoa.click/oauth2/authorization/kakao`;
   };
 
   const handleLoginRedirect = () => {
