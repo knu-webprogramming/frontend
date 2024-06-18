@@ -3,10 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import '../styles/CustomerProfileModifyPage.css';
-import defaultProfileImage from '../assets/sample.png';
 
 function CustomerProfileModifyPage() {
-  const [profileImage, setProfileImage] = useState(null);
+  const [profileImage, setProfileImage] = useState('');
   const [image, setImage] = useState(null); // 업로드된 파일을 저장
   const [name, setName] = useState('');
   const navigate = useNavigate();
@@ -24,7 +23,10 @@ function CustomerProfileModifyPage() {
         if (response.status === 200) {
           const data = response.data;
           setName(data.name);
-          setImage(data.image);
+          if (data.profileImageUrl) {
+            // 이미지 URL을 절대 경로로 변환
+            setProfileImage(`https://${data.profileImageUrl}`);
+          }
         }
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -85,10 +87,8 @@ function CustomerProfileModifyPage() {
           onChange={handleImageChange}
         />
         <label htmlFor="profileImage" className="profile-pic-label">
-          {profileImage ? (
+          {profileImage && (
             <img src={profileImage} alt="Profile" className="profile-pic" />
-          ) : (
-            <img src={defaultProfileImage} alt="Default Profile" className="profile-pic" />
           )}
         </label>
       </div>
