@@ -15,7 +15,7 @@ function CustomerProfileModifyPage() {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get('http://3.39.232.19:8080/customer', {
+        const response = await axios.get('https://api.couponmoa.click/customer', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -58,7 +58,7 @@ function CustomerProfileModifyPage() {
     }
 
     try {
-      const response = await axios.post('http://3.39.232.19:8080/customer', formData, {
+      const response = await axios.post('https://api.couponmoa.click/customer', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
