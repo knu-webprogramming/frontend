@@ -25,7 +25,7 @@ function CustomerProfileModifyPage() {
           const data = response.data;
           setNickname(data.name);
           if (data.profileImageUrl) {
-            setProfileImage(`http://${data.profileImageUrl}`);
+            setProfileImage(`https://${data.profileImageUrl}`);
           } else {
             setProfileImage(defaultProfileImage);
           }

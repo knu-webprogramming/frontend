@@ -18,7 +18,7 @@ function CustomerCouponBoxPage() {
     useEffect(() => {
         const fetchShops = async () => {
             try {
-                const response = await axios.get('http://3.39.232.19:8080/shop/all', {
+                const response = await axios.get('https://api.couponmoa.click/shop/all', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -38,7 +38,7 @@ function CustomerCouponBoxPage() {
     useEffect(() => {
         const fetchCoupons = async () => {
             try {
-                const response = await axios.get('http://3.39.232.19:8080/customer/shops', {
+                const response = await axios.get('https://api.couponmoa.click/customer/shops', {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }
@@ -46,7 +46,7 @@ function CustomerCouponBoxPage() {
                 console.log(response.data); // 받아온 데이터 출력
                 const updatedCoupons = response.data.map(coupon => ({
                     ...coupon,
-                    profileImageUrl: `http://${coupon.profile_image_url}`
+                    profileImageUrl: `https://${coupon.profile_image_url}`
                 }));
                 setCoupons(updatedCoupons);
             } catch (error) {
@@ -75,7 +75,7 @@ function CustomerCouponBoxPage() {
 
     const handleShopClick = async (shopId) => {
         try {
-            const response = await axios.post(`http://3.39.232.19:8080/coupon/${shopId}`, {}, {
+            const response = await axios.post(`https://api.couponmoa.click/coupon/${shopId}`, {}, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
