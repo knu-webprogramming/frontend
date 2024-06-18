@@ -53,6 +53,8 @@ function CustomerProfileModifyPage() {
 
     if (image) {
       formData.append('image', image);
+    } else {
+      formData.append('image', null);
     }
 
     try {
