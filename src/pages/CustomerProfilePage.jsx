@@ -9,7 +9,7 @@ import userDefaultImage from '../assets/user.png'; // 기본 이미지 파일
 function CustomerProfilePage() {
   const [profileImage, setProfileImage] = useState(null);
   const [imageFile, setImageFile] = useState(null); // 업로드된 파일을 저장
-  const [nickname, setNickname] = useState('');
+  const [name, setName] = useState('');
   const navigate = useNavigate();
   const token = useSelector((state) => state.token.token); // Redux에서 토큰을 가져옴
   console.log(token)
@@ -22,12 +22,12 @@ function CustomerProfilePage() {
   };
 
   const handleNicknameChange = (e) => {
-    setNickname(e.target.value);
+    setName(e.target.value);
   };
 
   const handleCustomerMainClick = async () => {
     const formData = new FormData();
-    formData.append('nickname', nickname);
+    formData.append('name', name);
 
     if (imageFile) {
       formData.append('profileImage', imageFile);
@@ -56,7 +56,7 @@ function CustomerProfilePage() {
       }
 
       // API 호출이 성공한 경우
-      navigate('/customer/main', { state: { nickname } });
+      navigate('/customer/main', { state: { name } });
     } catch (error) {
       console.error('There was a problem with the axios operation:', error);
       console.error('Response:', error.response); // 서버에서 반환된 오류 메시지 출력

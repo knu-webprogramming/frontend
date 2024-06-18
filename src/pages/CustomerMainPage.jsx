@@ -17,7 +17,7 @@ const CustomerMainPage = () => {
   useEffect(() => {
     const fetchProfileData = async () => {
       try {
-        const response = await axios.get('http://3.39.232.19:8080/customer', {
+        const response = await axios.get('https://api.couponmoa.click/customer', {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
