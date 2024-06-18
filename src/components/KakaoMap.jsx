@@ -91,7 +91,7 @@ const KakaoMap = () => {
   const handleConfirmModal = async () => {
     if (placeInfo && placeInfo.shop_id) {
       try {
-        const response = await axios.post(`http://3.39.232.19:8080/coupon/${placeInfo.shop_id}`, {}, {
+        const response = await axios.post(`https://api.couponmoa.click/coupon/${placeInfo.shop_id}`, {}, {
           headers: {
             'Authorization': `Bearer ${token}`
           }

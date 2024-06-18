@@ -11,7 +11,7 @@ function StartPage() {
       <p>◆로그인, 프로필 설정 및 수정, 쿠폰함에 쿠폰(매장) 등록 기능은 구현 완료</p>
 
       <div><Link to="/login">1. SignUp/LoginPage</Link></div>
-      <div><Link to="/signup/select">2. SelectPage</Link></div>
+      <div><Link to="/login/select">2. SelectPage</Link></div>
       <div><Link to="/customer/profile">3. CustomerProfilePage</Link></div>
       <div><Link to="/customer/main">4. CustomerMainPage</Link></div>
       <div><Link to="/customer/coupon-box">5. CustomerCouponBoxPage</Link></div>

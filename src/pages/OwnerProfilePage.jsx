@@ -69,7 +69,7 @@ const OwnerProfilePage = () => {
     });
 
     try {
-      const response = await axios.post('http://3.39.232.19:8080/shop', formData, {
+      const response = await axios.post('https://api.couponmoa.click/shop', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
