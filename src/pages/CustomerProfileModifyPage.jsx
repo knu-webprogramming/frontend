@@ -24,13 +24,7 @@ function CustomerProfileModifyPage() {
         if (response.status === 200) {
           const data = response.data;
           setName(data.name);
-          if (data.profileImageUrl) {
-            // 이미지 URL이 유효한지 콘솔 로그로 확인
-            console.log('Fetched profile image URL:', data.profileImageUrl);
-            setProfileImage(data.profileImageUrl);
-          } else {
-            setProfileImage(defaultProfileImage);
-          }
+          setImage(data.image);
         }
       } catch (error) {
         console.error('Error fetching profile data:', error);
