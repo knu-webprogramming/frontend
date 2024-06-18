@@ -35,7 +35,7 @@ const KakaoMap = () => {
 
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://3.39.232.19:8080/shop/all', {
+        const response = await axios.get('https://api.couponmoa.click/shop/all', {
           headers: {
             'Authorization': `Bearer ${token}`
           }
