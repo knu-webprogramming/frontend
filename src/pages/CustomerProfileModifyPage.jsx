@@ -7,8 +7,8 @@ import defaultProfileImage from '../assets/sample.png';
 
 function CustomerProfileModifyPage() {
   const [profileImage, setProfileImage] = useState(null);
-  const [imageFile, setImageFile] = useState(null); // 업로드된 파일을 저장
-  const [nickname, setNickname] = useState('');
+  const [image, setImage] = useState(null); // 업로드된 파일을 저장
+  const [name, setName] = useState('');
   const navigate = useNavigate();
   const token = useSelector((state) => state.token.token); // Redux에서 토큰을 가져옴
 
@@ -23,7 +23,7 @@ function CustomerProfileModifyPage() {
 
         if (response.status === 200) {
           const data = response.data;
-          setNickname(data.name);
+          setName(data.name);
           if (data.profileImageUrl) {
             setProfileImage(`https://${data.profileImageUrl}`);
           } else {
@@ -41,20 +41,20 @@ function CustomerProfileModifyPage() {
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setProfileImage(URL.createObjectURL(e.target.files[0]));
-      setImageFile(e.target.files[0]); // 파일 저장
+      setImage(e.target.files[0]); // 파일 저장
     }
   };
 
-  const handleNicknameChange = (e) => {
-    setNickname(e.target.value);
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
   const handleCustomerMainClick = async () => {
     const formData = new FormData();
-    formData.append('name', nickname);
+    formData.append('name', name);
 
-    if (imageFile) {
-      formData.append('image', imageFile);
+    if (image) {
+      formData.append('image', image);
     }
 
     try {
@@ -69,7 +69,7 @@ function CustomerProfileModifyPage() {
         throw new Error('Network response was not ok');
       }
 
-      navigate('/customer/main', { state: { nickname } });
+      navigate('/customer/main', { state: { name } });
     } catch (error) {
       console.error('There was a problem with the axios operation:', error);
       console.error('Response:', error.response); // 서버에서 반환된 오류 메시지 출력
@@ -95,13 +95,13 @@ function CustomerProfileModifyPage() {
         </label>
       </div>
       <div className="input-group">
-        <label htmlFor="nickname">닉네임</label>
+        <label htmlFor="name">닉네임</label>
         <input
           type="text"
-          id="nickname"
+          id="name"
           placeholder="사용할 닉네임을 입력하세요"
-          value={nickname}
-          onChange={handleNicknameChange}
+          value={name}
+          onChange={handleNameChange}
         />
       </div>
       <button className="submit-button" onClick={handleCustomerMainClick}>수정</button>
