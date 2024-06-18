@@ -7,7 +7,7 @@ import defaultProfileImage from '../assets/profileimage.png';
 import userDefaultImage from '../assets/user.png'; // 기본 이미지 파일
 
 function CustomerProfilePage() {
-  const [profileImage, setProfileImage] = useState(null);
+  const [image, setImage] = useState(null);
   const [imageFile, setImageFile] = useState(null); // 업로드된 파일을 저장
   const [name, setName] = useState('');
   const navigate = useNavigate();
@@ -16,12 +16,12 @@ function CustomerProfilePage() {
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      setProfileImage(URL.createObjectURL(e.target.files[0]));
+      setImage(URL.createObjectURL(e.target.files[0]));
       setImageFile(e.target.files[0]); // 파일 저장
     }
   };
 
-  const handleNicknameChange = (e) => {
+  const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
@@ -30,13 +30,13 @@ function CustomerProfilePage() {
     formData.append('name', name);
 
     if (imageFile) {
-      formData.append('profileImage', imageFile);
+      formData.append('image', imageFile);
     } else {
       // 기본 이미지를 포함시키기 위해 Blob을 생성합니다.
       try {
         const response = await fetch(userDefaultImage);
         const blob = await response.blob();
-        formData.append('profileImage', blob, 'user.png');
+        formData.append('image', blob, 'user.png');
       } catch (error) {
         console.error('Error fetching default image:', error);
         return;
@@ -69,26 +69,26 @@ function CustomerProfilePage() {
       <div className="profile-pic-container">
         <input
           type="file"
-          id="profileImage"
+          id="image"
           style={{ display: 'none' }}
           onChange={handleImageChange}
         />
-        <label htmlFor="profileImage" className="profile-pic-label">
-          {profileImage ? (
-            <img src={profileImage} alt="Profile" className="profile-pic" />
+        <label htmlFor="image" className="profile-pic-label">
+          {image ? (
+            <img src={image} alt="Profile" className="profile-pic" />
           ) : (
             <img src={defaultProfileImage} alt="Default Profile" className="profile-pic" />
           )}
         </label>
       </div>
       <div className="input-group">
-        <label htmlFor="nickname">닉네임</label>
+        <label htmlFor="name">닉네임</label>
         <input
           type="text"
-          id="nickname"
+          id="name"
           placeholder="사용할 닉네임을 입력하세요"
-          value={nickname}
-          onChange={handleNicknameChange}
+          value={name}
+          onChange={handleNameChange}
         />
       </div>
       <button className="submit-button" onClick={handleCustomerMainClick}>등록</button>
