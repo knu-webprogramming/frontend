@@ -1,3 +1,4 @@
+/* CustomerProfileModifyPage.css */
 .form-container {
   display: flex;
   flex-direction: column;
@@ -14,12 +15,24 @@
   margin-bottom: 0px;
 }
 
-.profile-pic {
-  width: 100px;
-  height: 100px;
-  background-color: #cccccc;
-  border-radius: 50%;
+.profile-pic-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.profile-pic-label {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.profile-pic {
+  width: 150px; /* 원하는 너비로 조정 */
+  height: 150px; /* 원하는 높이로 조정 */
+  border-radius: 50%; /* 원형으로 만들기 위해 */
+  object-fit: cover; /* 이미지가 깨지지 않도록 */
+  border: 2px solid #ddd; /* 테두리 추가 */
 }
 
 .input-group {
@@ -42,7 +55,7 @@ input {
 }
 
 .submit-button {
-  margin-top:15px;
+  margin-top: 15px;
   width: 100%;
   padding: 15px;
   font-size: 18px;
@@ -60,40 +73,40 @@ input {
 /* 반응형 디자인 */
 @media (max-width: 768px) {
   .title {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   label {
-      font-size: 16px;
+    font-size: 16px;
   }
 
   input {
-      font-size: 14px;
-      padding: 8px;
+    font-size: 14px;
+    padding: 8px;
   }
 
   .submit-button {
-      font-size: 16px;
-      padding: 12px;
+    font-size: 16px;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .title {
-      font-size: 18px;
+    font-size: 18px;
   }
 
   label {
-      font-size: 14px;
+    font-size: 14px;
   }
 
   input {
-      font-size: 12px;
-      padding: 6px;
+    font-size: 12px;
+    padding: 6px;
   }
 
   .submit-button {
-      font-size: 14px;
-      padding: 10px;
+    font-size: 14px;
+    padding: 10px;
   }
 }
