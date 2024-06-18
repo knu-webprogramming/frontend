@@ -26,7 +26,7 @@ const CustomerMainPage = () => {
         if (response.status === 200) {
           setProfileData({
             name: response.data.name,
-            profileImageUrl: `http://${response.data.profileImageUrl}`,
+            profileImageUrl: `https://${response.data.profileImageUrl}`,
           });
         }
       } catch (error) {
