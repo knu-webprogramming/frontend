@@ -51,10 +51,10 @@ function CustomerProfileModifyPage() {
 
   const handleCustomerMainClick = async () => {
     const formData = new FormData();
-    formData.append('nickname', nickname);
+    formData.append('name', nickname);
 
     if (imageFile) {
-      formData.append('profileImage', imageFile);
+      formData.append('image', imageFile);
     }
 
     try {
