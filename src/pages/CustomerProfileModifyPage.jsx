@@ -25,7 +25,7 @@ function CustomerProfileModifyPage() {
           const data = response.data;
           setName(data.name);
           if (data.profileImageUrl) {
-            setProfileImage(`https://${data.profileImageUrl}`);
+            setProfileImage(data.profileImageUrl);
           } else {
             setProfileImage(defaultProfileImage);
           }
@@ -72,7 +72,9 @@ function CustomerProfileModifyPage() {
       navigate('/customer/main', { state: { name } });
     } catch (error) {
       console.error('There was a problem with the axios operation:', error);
-      console.error('Response:', error.response); // 서버에서 반환된 오류 메시지 출력
+      if (error.response) {
+        console.error('Response:', error.response.data);
+      }
     }
   };
 
