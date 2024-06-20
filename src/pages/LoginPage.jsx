@@ -21,7 +21,7 @@ function ButtonComponent({ imageSrc, imageAlt, imageClassName, text, onClick, cl
   );
 }
 
-function SignUpButtons() {
+function LoginButtons() {
   const handleKakaoLogin = () => {
     window.location.href = `https://api.couponmoa.click/oauth2/authorization/kakao`;
   };
@@ -52,13 +52,13 @@ function SignUpButtons() {
   );
 }
 
-function SignUpPage() {
+function LoginPage() {
   return (
     <div className="signup-container">
       <img src={couponImage} alt="쿠폰모아" className="logo" />
-      <SignUpButtons />
+      <LoginButtons />
     </div>
   );
 }
 
-export default SignUpPage;
+export default LoginPage;
