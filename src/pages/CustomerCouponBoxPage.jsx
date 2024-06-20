@@ -86,8 +86,11 @@ function CustomerCouponBoxPage() {
                 console.log('Coupon added successfully');
                 toggleModal();
                 // 필요한 경우 추가적인 동작 수행
+            } else {
+                alert('이미 등록된 쿠폰입니다.');
             }
         } catch (error) {
+            alert('이미 등록된 쿠폰입니다.');
             console.error('Error adding coupon:', error);
         }
     };
