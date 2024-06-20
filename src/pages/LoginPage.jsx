@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/SignUpPage.css';
+import '../styles/LoginPage.css';
 import couponImage from "../assets/logo.png";
 import kakaoImage from "../assets/kakao.svg";
 import googleImage from "../assets/google.png";
@@ -26,7 +26,7 @@ function SignUpButtons() {
     window.location.href = `https://api.couponmoa.click/oauth2/authorization/kakao`;
   };
 
-  const handleLoginRedirect = () => {
+  const handleGoogleLogin = () => {
     window.location.href = '/';
   };
 
@@ -45,7 +45,7 @@ function SignUpButtons() {
         imageAlt="구글" 
         imageClassName=""
         text="구글로 시작하기" 
-        onClick={handleLoginRedirect} 
+        onClick={handleGoogleLogin} 
         className="google"
       />
     </div>
