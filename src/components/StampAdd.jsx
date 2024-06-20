@@ -1,8 +1,15 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
-function StampAdd() {
+const StampAdd = () => {
+  useEffect(() => {
     alert("도장이 적립되었습니다");
-}
+  }, []);
 
-export default StampAdd();
+  return (
+    <div>
+      도장이 적립되었습니다
+    </div>
+  );
+};
+
+export default StampAdd;
