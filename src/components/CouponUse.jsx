@@ -12,7 +12,7 @@ const CouponUse = () => {
   const [alertMessage, setAlertMessage] = useState('');
 
   useEffect(() => {
-    const useCoupon = async () => {
+    const applyCoupon = async () => {
       try {
         const response = await axios.post(`https://api.couponmoa.click/coupon/use/${shopId}`, {}, {
           headers: {
@@ -31,7 +31,7 @@ const CouponUse = () => {
     };
 
     if (shopId) {
-      useCoupon();
+      applyCoupon();
     }
   }, [shopId, token, navigate]);
 
