@@ -18,6 +18,7 @@ import KakaoMap from './components/KakaoMap';
 import KakaoCallback from './components/KakaoCallBack';
 import WebcamPage from './pages/WebcamPage';
 import QRCodeScanner from './components/QRCodeScanner';
+import StampAdd from './components/StampAdd';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
         <Route path="/kakao-callback" element={<KakaoCallback/>} />
+        <Route path="/stamp" element={<StampAdd/>} />
       </Routes>
     </Router>
   );

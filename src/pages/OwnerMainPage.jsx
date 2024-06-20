@@ -86,7 +86,7 @@ const OwnerMainPage = () => {
       {showQRCode && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <QRCode value="http://www.naver.com" size={256} />
+            <QRCode value="https://api.couponmoa.click/stamp" size={256} />
           </div>
         </div>
       )}
