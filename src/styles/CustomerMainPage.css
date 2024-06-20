@@ -46,7 +46,7 @@
   margin-top: 20px;
   font-size: 20px;
   color: #333;
-  margin-bottom: 80px; /* 환영 텍스트 아래 공백 추가 */
+  margin-bottom: 160px; /* 환영 텍스트 아래 공백 두 배로 증가 */
 }
 
 .highlight {
@@ -96,7 +96,7 @@
 
   .welcome-text {
     font-size: 18px;
-    margin-bottom: 200px; /* 환영 텍스트 아래 공백 조정 */
+    margin-bottom: 140px; /* 환영 텍스트 아래 공백 두 배로 증가 */
   }
 
   .logout-container {
@@ -129,7 +129,7 @@
 
   .welcome-text {
     font-size: 16px;
-    margin-bottom: 60px; /* 환영 텍스트 아래 공백 조정 */
+    margin-bottom: 120px; /* 환영 텍스트 아래 공백 두 배로 증가 */
   }
 
   .logout-container {
