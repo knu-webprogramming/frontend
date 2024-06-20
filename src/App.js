@@ -43,8 +43,8 @@ function App() {
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
         <Route path="/kakao-callback" element={<KakaoCallback/>} />
-        <Route path="/customer/stamp/:shopId" element={<StampAdd/>} />
-        <Route path="/customer/coupon/use/:shopId" element={<CouponUse/>} />
+        <Route path="/customer/stamp" element={<StampAdd/>} />
+        <Route path="/customer/coupon/use" element={<CouponUse/>} />
         <Route path="/customer/coupon/:shopId" element={<CustomerCouponPage />} />
         <Route path="/customer/coupon/camera/:shopId" element={<WebcamPage />} />
       </Routes>
