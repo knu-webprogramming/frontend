@@ -22,7 +22,7 @@ function CustomerCouponPage() {
   useEffect(() => {
     const fetchShopData = async () => {
       try {
-        const response = await axios.get(`https://api.couponmoa.click/shop/${shopId}`, {
+        const response = await axios.get(`https://api.couponmoa.click/coupon/${shopId}`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
