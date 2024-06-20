@@ -28,6 +28,7 @@ function CustomerCouponPage() {
           }
         });
         const shopData = response.data;
+        console.log(shopData);
         setData({
           storeName: shopData.name,
           stampType: shopData.stamp_type,
@@ -44,7 +45,7 @@ function CustomerCouponPage() {
   }, [shopId, token]);
 
   const handleAddStamp = () => {
-    navigate('/customer/coupon/camera'); // 카메라 페이지로 이동
+    navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
 
   const handleCouponUse = () => {

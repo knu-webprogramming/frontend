@@ -44,6 +44,7 @@ function App() {
         <Route path="/kakao-callback" element={<KakaoCallback/>} />
         <Route path="/stamp" element={<StampAdd/>} />
         <Route path="/customer/coupon/:shopId" element={<CustomerCouponPage />} />
+        <Route path="/customer/coupon/camera/:shopId" element={<WebcamPage />} />
       </Routes>
     </Router>
   );
