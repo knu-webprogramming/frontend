@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
@@ -9,6 +9,7 @@ const StampAdd = () => {
   const queryParams = new URLSearchParams(location.search);
   const shopId = queryParams.get('shopId');
   const token = useSelector((state) => state.token.token);
+  const [alertMessage, setAlertMessage] = useState('');
 
   useEffect(() => {
     const addStamp = async () => {
@@ -19,15 +20,13 @@ const StampAdd = () => {
           },
         });
         if (response.status === 200) {
-          navigate(`/customer/coupon/${shopId}`, { replace: true }).then(() => {
-            alert('도장이 적립되었습니다');
-          });
+          setAlertMessage('도장이 적립되었습니다');
+          navigate(`/customer/coupon/${shopId}`, { replace: true });
         }
       } catch (error) {
         console.error('Error adding stamp:', error);
-        navigate(`/customer/coupon/${shopId}`, { replace: true }).then(() => {
-          alert('도장 적립에 실패했습니다.');
-        });
+        setAlertMessage('도장 적립에 실패했습니다.');
+        navigate(`/customer/coupon/${shopId}`, { replace: true });
       }
     };
 
@@ -35,6 +34,12 @@ const StampAdd = () => {
       addStamp();
     }
   }, [shopId, token, navigate]);
+
+  useEffect(() => {
+    if (alertMessage) {
+      alert(alertMessage);
+    }
+  }, [alertMessage]);
 
   return (
     <div>
