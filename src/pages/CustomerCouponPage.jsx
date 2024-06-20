@@ -32,7 +32,7 @@ function CustomerCouponPage() {
         console.log(shopData);
         setData((prevState) => ({
           ...prevState,
-          storeName: shopData.name,
+          storeName: shopData.name || prevState.storeName,
           stampType: shopData.stamp_type,
           maxStamps: shopData.max_stamps,
           currentStamps: shopData.stamps,
