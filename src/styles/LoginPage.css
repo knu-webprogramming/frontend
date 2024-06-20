@@ -33,17 +33,22 @@
   height: 55px;
   margin: 15px 0;
   border: none;
-  border-radius: 10px;
-  font-size: 16px;
+  border-radius: 12px;
+  font-size: 30px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  padding: 0;
+  transition: background-color 0.3s, transform 0.3s;
+  padding: 0 20px; /* 좌우 공백 추가 */
 }
 
 .signup-button img {
   width: 30px; /* Adjust the size of the icon */
   height: 30px; /* Adjust the size of the icon */
   margin-right: 10px;
+}
+
+.signup-button:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* Hover 효과 추가 */
+  transform: scale(1.05); /* Hover 시 확대 효과 추가 */
 }
 
 .button-text {
@@ -56,10 +61,18 @@
   color: #3c1e1e;
 }
 
+.kakao:hover {
+  background-color: #e4d400; /* Hover 시 색상 변경 */
+}
+
 .google {
   background-color: white;
   color: #000000;
   border: 1px solid #000000;
+}
+
+.google:hover {
+  background-color: #f0f0f0; /* Hover 시 색상 변경 */
 }
 
 .signup-link {
@@ -87,7 +100,7 @@
   }
 
   .signup-button {
-    font-size: 14px;
+    font-size: 24px; /* 폰트 크기를 줄여서 더 작은 화면에 맞게 조정 */
     height: 50px;
     width: 80%;
   }
