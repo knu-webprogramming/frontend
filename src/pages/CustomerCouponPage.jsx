@@ -30,7 +30,7 @@ function CustomerCouponPage() {
         const shopData = response.data;
         setData({
           storeName: shopData.name,
-          stampType: shopData.stamp_type || 'stamp1',
+          stampType: shopData.stamp_type,
           maxStamps: shopData.max_stamps,
           currentStamps: 0, // 이 데이터를 어디서 가져오는지에 따라 달라질 수 있습니다.
           couponBenefit: shopData.reward
