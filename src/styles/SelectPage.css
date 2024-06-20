@@ -2,21 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Top align */
   height: 100vh;
   text-align: center;
   padding: 20px;
+  padding-top: 80px; /* 상단 여백 추가 */
   box-sizing: border-box;
 }
 
 .logo {
   width: 100px;
   margin-bottom: 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.text{
-  padding:10px;
+.text {
+  padding: 10px;
 }
 
 .options {
@@ -37,34 +38,38 @@
 .icon {
   width: 120px;
   height: 120px;
-  padding:20px;
+  padding: 20px;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 600px) {
 
   .option {
-      margin-bottom: 20px;
+    margin-bottom: 20px;
   }
 
   .icon {
-      width: 100px;
-      height: 100px;
+    width: 100px;
+    height: 100px;
   }
 }
 
 @media (max-width: 480px) {
+  .select-container {
+    padding-top: 60px; /* 상단 여백 유지 */
+  }
+
   .logo {
-      width: 80px;
-      height: 80px;
+    width: 80px;
+    height: 80px;
   }
 
   .icon {
-      width: 80px;
-      height: 80px;
+    width: 80px;
+    height: 80px;
   }
 
   .option {
-      margin-bottom: 15px;
+    margin-bottom: 15px;
   }
 }
