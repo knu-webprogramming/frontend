@@ -47,7 +47,6 @@
 
 .signup-button:hover {
   background-color: rgba(0, 0, 0, 0.1); /* Hover 효과 추가 */
-  transform: scale(1.05); /* Hover 시 확대 효과 추가 */
 }
 
 .button-text {
