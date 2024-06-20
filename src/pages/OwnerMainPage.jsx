@@ -89,7 +89,8 @@ const OwnerMainPage = () => {
       {showQRCode && shopId && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <QRCode value={`https://main--coupon-moa.netlify.app/stamp?shopId=${shopId}`} size={256} />
+            <QRCode value={`https://main--coupon-moa.netlify.app/customer/stamp?shopId=${shopId}`} size={256} />
+            <QRCode value={`https://main--coupon-moa.netlify.app/customer/coupon/use?shopId=${shopId}`} size={256} style={{ marginTop: '20px' }} />
           </div>
         </div>
       )}
