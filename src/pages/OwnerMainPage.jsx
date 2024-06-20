@@ -15,6 +15,7 @@ const OwnerMainPage = () => {
   const token = useSelector((state) => state.token.token);
   const [profileData, setProfileData] = useState({ name: '점주', profileImageUrl: profileImagePlaceholder });
   const [avatarUrl, setAvatarUrl] = useState(null);
+  const [shopId, setShopId] = useState(null); // shopId 상태 추가
   const [showQRCode, setShowQRCode] = useState(false);
 
   useEffect(() => {
@@ -36,6 +37,8 @@ const OwnerMainPage = () => {
           if (response.data.profile_image_url) {
             setAvatarUrl(`http://${response.data.profile_image_url}`);
           }
+
+          setShopId(response.data.shop_id); // shopId 설정
         }
       } catch (error) {
         console.error('Error fetching profile data:', error);
@@ -83,10 +86,10 @@ const OwnerMainPage = () => {
         </div>
       </div>
 
-      {showQRCode && (
+      {showQRCode && shopId && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <QRCode value="https://main--coupon-moa.netlify.app/stamp" size={256} />
+            <QRCode value={`https://main--coupon-moa.netlify.app/stamp?shopId=${shopId}`} size={256} />
           </div>
         </div>
       )}
@@ -94,4 +97,4 @@ const OwnerMainPage = () => {
   );
 };
 
-export default OwnerMainPage; 
+export default OwnerMainPage;
