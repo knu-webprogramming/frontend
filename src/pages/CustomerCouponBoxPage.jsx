@@ -93,6 +93,7 @@ function CustomerCouponBoxPage() {
     };
 
     const handleCouponItemClick = (coupon) => {
+        console.log("매장명:", coupon.name);
         dispatch(setShopName(coupon.name));
         navigate(`/customer/coupon/${coupon.shop_id}`);
     };
