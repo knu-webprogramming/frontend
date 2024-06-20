@@ -13,18 +13,21 @@ const StampAdd = () => {
   useEffect(() => {
     const addStamp = async () => {
       try {
-        const response = await axios.post(`https://api.couponmoa.click/coupon/stamp/${shopId}`, {
+        const response = await axios.post(`https://api.couponmoa.click/coupon/stamp/${shopId}`, {}, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
         });
         if (response.status === 200) {
-          alert('도장이 적립되었습니다');
-          navigate(`/customer/coupon/${shopId}`);
+          navigate(`/customer/coupon/${shopId}`, { replace: true }).then(() => {
+            alert('도장이 적립되었습니다');
+          });
         }
       } catch (error) {
         console.error('Error adding stamp:', error);
-        alert('도장 적립에 실패했습니다.');
+        navigate(`/customer/coupon/${shopId}`, { replace: true }).then(() => {
+          alert('도장 적립에 실패했습니다.');
+        });
       }
     };
 
