@@ -2,11 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Top align */
   height: 100vh;
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
+  padding-top: 80px; /* 상단 여백 추가 */
 }
 
 .header {
@@ -18,6 +19,7 @@
   top: 0;
   box-sizing: border-box;
   z-index: 1000; /* z-index를 추가하여 다른 요소보다 위에 오도록 설정 */
+  height: 60px; /* Header height 설정 */
 }
 
 .profile-icon, .couponlist-icon {
@@ -30,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  margin-top: 80px; /* 헤더와의 간격을 추가 */
+  margin-top: 20px; /* 상단 여백 추가 */
 }
 
 .avatar img {
@@ -69,10 +71,12 @@
 @media (max-width: 768px) {
   .customer-main-page {
     padding: 10px;
+    padding-top: 80px; /* 상단 여백 유지 */
   }
 
   .header {
     padding: 10px;
+    height: 50px; /* Header height 설정 */
   }
 
   .profile-icon, .couponlist-icon {
@@ -96,6 +100,14 @@
 }
 
 @media (max-width: 480px) {
+  .customer-main-page {
+    padding-top: 80px; /* 상단 여백 유지 */
+  }
+
+  .header {
+    height: 50px; /* Header height 설정 */
+  }
+
   .profile-icon, .couponlist-icon {
     width: 30px;
   }
