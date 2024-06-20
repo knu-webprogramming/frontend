@@ -43,7 +43,7 @@ const StampAdd = () => {
 
   return (
     <div>
-      도장이 적립되었습니다
+
     </div>
   );
 };
