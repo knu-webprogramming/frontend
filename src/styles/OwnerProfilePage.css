@@ -82,7 +82,7 @@
 .glasses-icon {
   position: absolute;
   right: 10px;
-  top: calc(50% - 10px); /* 입력란 중앙에 오도록 조정 */
+  top: 50%; /* 입력란 중앙에 오도록 조정 */
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
