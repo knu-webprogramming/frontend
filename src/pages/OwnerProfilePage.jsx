@@ -153,18 +153,20 @@ const OwnerProfilePage = () => {
       <form className="form">
         <div className="form-group store-name-group">
           <label>가게명</label>
-          <input
-            type="text"
-            placeholder="가게명을 입력하세요"
-            value={storeName}
-            readOnly
-          />
-          <img
-            src={glassesImage}
-            alt="Search Store"
-            className="glasses-icon"
-            onClick={handleMapRedirect}
-          />
+          <div className="input-with-icon">
+            <input
+              type="text"
+              placeholder="가게명을 입력하세요"
+              value={storeName}
+              readOnly
+            />
+            <img
+              src={glassesImage}
+              alt="Search Store"
+              className="glasses-icon"
+              onClick={handleMapRedirect}
+            />
+          </div>
         </div>
         <div className="form-group address-group">
           <label>주소</label>
@@ -196,18 +198,18 @@ const OwnerProfilePage = () => {
         <div className="form-group">
           <label>쿠폰 모양</label>
           <div className="coupon-selection">
-            <img 
-              src={couponImage} 
-              alt="Coupon" 
-              onClick={() => handleCouponClick('type1')} 
-              className={selectedCoupon === 'type1' ? 'selected' : ''} 
+            <img
+              src={couponImage}
+              alt="Coupon"
+              onClick={() => handleCouponClick('type1')}
+              className={selectedCoupon === 'type1' ? 'selected' : ''}
             />
             <span>or</span>
-            <img 
-              src={couponaddImage} 
-              alt="Add Coupon" 
-              onClick={() => handleCouponClick('type2')} 
-              className={selectedCoupon === 'type2' ? 'selected' : ''} 
+            <img
+              src={couponaddImage}
+              alt="Add Coupon"
+              onClick={() => handleCouponClick('type2')}
+              className={selectedCoupon === 'type2' ? 'selected' : ''}
             />
           </div>
         </div>
