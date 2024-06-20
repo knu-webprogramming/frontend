@@ -43,6 +43,7 @@ function App() {
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
         <Route path="/kakao-callback" element={<KakaoCallback/>} />
         <Route path="/stamp" element={<StampAdd/>} />
+        <Route path="/customer/coupon/:shopId" element={<CustomerCouponPage />} />
       </Routes>
     </Router>
   );

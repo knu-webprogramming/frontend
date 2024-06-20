@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import Header from '../components/Header';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function CustomerCouponPage() {
-  const navigate = useNavigate();
+  const { shopId } = useParams();
+  const token = useSelector((state) => state.token.token);
   const [data, setData] = useState({
     storeName: '',
     stampType: 'stamp1',
@@ -16,11 +19,28 @@ function CustomerCouponPage() {
   });
 
   useEffect(() => {
-    fetch('/data/customer-coupon.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error loading stamp data:', error));
-  }, []);
+    const fetchShopData = async () => {
+      try {
+        const response = await axios.get(`https://api.couponmoa.click/shop/${shopId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const shopData = response.data;
+        setData({
+          storeName: shopData.name,
+          stampType: shopData.stamp_type || 'stamp1',
+          maxStamps: shopData.max_stamps,
+          currentStamps: 0, // 이 데이터를 어디서 가져오는지에 따라 달라질 수 있습니다.
+          couponBenefit: shopData.reward
+        });
+      } catch (error) {
+        console.error('Error fetching shop data:', error);
+      }
+    };
+
+    fetchShopData();
+  }, [shopId, token]);
 
   const handleAddStamp = () => {
     navigate('/customer/coupon/camera'); // 카메라 페이지로 이동

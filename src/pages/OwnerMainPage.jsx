@@ -94,4 +94,4 @@ const OwnerMainPage = () => {
   );
 };
 
-export default OwnerMainPage;
+export default OwnerMainPage; 
