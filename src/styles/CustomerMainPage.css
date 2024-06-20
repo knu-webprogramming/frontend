@@ -7,7 +7,7 @@
   text-align: center;
   padding: 20px;
   padding-top: 80px; /* 상단 여백 추가 */
-  padding-bottom: 60px; /* 하단 여백 추가 */
+  padding-bottom: 20px; /* 하단 여백 추가 */
   box-sizing: border-box;
 }
 
@@ -46,7 +46,7 @@
   margin-top: 20px;
   font-size: 20px;
   color: #333;
-  margin-bottom: 40px; /* 환영 텍스트 아래 공백 추가 */
+  margin-bottom: 80px; /* 환영 텍스트 아래 공백 추가 */
 }
 
 .highlight {
@@ -75,7 +75,7 @@
   .customer-main-page {
     padding: 10px;
     padding-top: 80px; /* 상단 여백 유지 */
-    padding-bottom: 60px; /* 하단 여백 유지 */
+    padding-bottom: 20px; /* 하단 여백 유지 */
   }
 
   .header {
@@ -96,7 +96,7 @@
 
   .welcome-text {
     font-size: 18px;
-    margin-bottom: 30px; /* 환영 텍스트 아래 공백 조정 */
+    margin-bottom: 70px; /* 환영 텍스트 아래 공백 조정 */
   }
 
   .logout-container {
@@ -111,7 +111,7 @@
 @media (max-width: 480px) {
   .customer-main-page {
     padding-top: 80px; /* 상단 여백 유지 */
-    padding-bottom: 60px; /* 하단 여백 유지 */
+    padding-bottom: 20px; /* 하단 여백 유지 */
   }
 
   .header {
@@ -129,7 +129,7 @@
 
   .welcome-text {
     font-size: 16px;
-    margin-bottom: 20px; /* 환영 텍스트 아래 공백 조정 */
+    margin-bottom: 60px; /* 환영 텍스트 아래 공백 조정 */
   }
 
   .logout-container {
