@@ -33,7 +33,7 @@ function CustomerCouponPage() {
           storeName: shopData.name,
           stampType: shopData.stamp_type,
           maxStamps: shopData.max_stamps,
-          currentStamps: shopData.current_stamps, // API에서 받아온 current_stamps 값 사용
+          currentStamps: shopData.stamps,
           couponBenefit: shopData.reward
         });
       } catch (error) {
