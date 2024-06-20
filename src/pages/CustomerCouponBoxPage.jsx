@@ -94,7 +94,7 @@ function CustomerCouponBoxPage() {
 
     const handleCouponItemClick = (coupon) => {
         dispatch(setShopName(coupon.name));
-        navigate(`/customer/coupon/${coupon.shopId}`);
+        navigate(`/customer/coupon/${coupon.shop_id}`);
     };
 
     return (
