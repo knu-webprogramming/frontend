@@ -10,7 +10,6 @@
     padding: 20px;
     box-sizing: border-box;
     position: relative;
-    /* 테두리 관련 스타일 제거 */
 }
 
 .header {
@@ -45,7 +44,6 @@
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    /* 테두리 관련 스타일 제거 */
 }
 
 .no-coupons {
@@ -53,7 +51,7 @@
     font-size: 16px;
 }
 
-.modal {
+.modal-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -63,10 +61,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 999;
 }
 
-.modal-content {
+.modal {
     background-color: white;
     width: 80%;
     max-width: 500px;

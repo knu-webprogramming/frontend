@@ -130,8 +130,8 @@ function CustomerCouponBoxPage() {
                 )}
             </main>
             {isModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
+                <div className="modal-background">
+                    <div className="modal">
                         <span className="close" onClick={toggleModal}>&times;</span>
                         <div className="modal-text">                         
                             등록할 가게를 선택하세요<br/>
