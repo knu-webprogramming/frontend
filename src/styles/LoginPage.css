@@ -100,7 +100,7 @@
   }
 
   .signup-button {
-    font-size: 24px; /* 폰트 크기를 줄여서 더 작은 화면에 맞게 조정 */
+    font-size: 14px; /* 폰트 크기를 줄여서 더 작은 화면에 맞게 조정 */
     height: 50px;
     width: 80%;
   }
