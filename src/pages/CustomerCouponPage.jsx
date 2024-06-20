@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 function CustomerCouponPage() {
+  const navigate = useNavigate();
   const { shopId } = useParams();
   const token = useSelector((state) => state.token.token);
   const [data, setData] = useState({
