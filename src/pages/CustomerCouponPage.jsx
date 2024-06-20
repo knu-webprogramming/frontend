@@ -49,10 +49,7 @@ function CustomerCouponPage() {
   };
 
   const handleCouponUse = () => {
-    setData(prevData => ({
-      ...prevData,
-      currentStamps: 0,
-    }));
+    navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
 
   return (
