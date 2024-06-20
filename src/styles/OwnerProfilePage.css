@@ -15,6 +15,8 @@
 .title {
   font-size: 24px;
   margin-bottom: 20px;
+  width: 100%; /* 제목을 중앙에 정렬하기 위해 전체 너비를 차지하도록 설정 */
+  text-align: center; /* 텍스트를 중앙 정렬 */
 }
 
 .profile-image {
@@ -38,6 +40,7 @@
 .form-group {
   margin-bottom: 15px;
   height: 80px;
+  position: relative; /* relative 위치 설정 */
 }
 
 .form-group label {
@@ -61,6 +64,7 @@
 .store-name-group input,
 .address-group input {
   background-color: #f0f0f0; /* 연한 회색 배경색 */
+  padding-right: 40px; /* 아이콘과 겹치지 않도록 패딩 추가 */
 }
 
 .input-with-icon {
@@ -78,7 +82,7 @@
 .glasses-icon {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: calc(50% + 5px); /* 입력란 중앙에 오도록 조정 */
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
