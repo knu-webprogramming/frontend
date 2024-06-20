@@ -4,7 +4,7 @@
   align-items: center;
   margin: auto;
   width: 100%;
-  max-width: 400px;
+  max-width: 500px; /* 기본 너비를 더 넓게 설정 */
   height: auto;
   padding: 20px;
   text-align: center;
@@ -41,6 +41,8 @@
   margin-bottom: 15px;
   height: 80px;
   position: relative; /* relative 위치 설정 */
+  width: 80%; /* 입력 필드의 기본 너비를 80%로 설정 */
+  max-width: 400px; /* 최대 너비를 400px로 설정 */
 }
 
 .form-group label {
@@ -52,7 +54,7 @@
 
 .form-group input,
 .form-group select {
-  width: 100%;
+  width: 100%; /* 입력 필드의 너비를 100%로 설정하여 form-group의 너비에 맞춤 */
   height: 50px;
   padding: 10px;
   font-size: 16px;
@@ -107,7 +109,8 @@
 
 .submit-button {
   margin-top: 15px;
-  width: 100%;
+  width: 80%; /* 버튼 너비를 다른 입력 필드와 맞춤 */
+  max-width: 400px; /* 최대 너비를 400px로 설정 */
   padding: 15px;
   font-size: 18px;
   background-color: #FF5872;
