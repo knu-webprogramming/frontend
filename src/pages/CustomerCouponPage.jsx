@@ -11,8 +11,9 @@ function CustomerCouponPage() {
   const navigate = useNavigate();
   const { shopId } = useParams();
   const token = useSelector((state) => state.token.token);
+  const shopName = useSelector((state) => state.shopName);
   const [data, setData] = useState({
-    storeName: '',
+    storeName: shopName,
     stampType: 'stamp1',
     maxStamps: 10,
     currentStamps: 0,
@@ -29,13 +30,14 @@ function CustomerCouponPage() {
         });
         const shopData = response.data;
         console.log(shopData);
-        setData({
+        setData((prevState) => ({
+          ...prevState,
           storeName: shopData.name,
           stampType: shopData.stamp_type,
           maxStamps: shopData.max_stamps,
           currentStamps: shopData.stamps,
           couponBenefit: shopData.reward
-        });
+        }));
       } catch (error) {
         console.error('Error fetching shop data:', error);
       }

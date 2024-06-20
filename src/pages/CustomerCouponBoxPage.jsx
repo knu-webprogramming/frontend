@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import '../styles/CustomerCouponBoxPage.css';
 import addImage from '../assets/add.png';
 import backImage from '../assets/back.png';
 import mapIconImage from '../assets/kakaomap.png';
 import CouponItem from '../components/CouponItem';
+import { setShopName } from '../redux/slices/shopNameSlice';
 
 function CustomerCouponBoxPage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const token = useSelector((state) => state.token.token);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [shops, setShops] = useState([]);
@@ -90,6 +92,11 @@ function CustomerCouponBoxPage() {
         }
     };
 
+    const handleCouponItemClick = (coupon) => {
+        dispatch(setShopName(coupon.name));
+        navigate(`/customer/coupon/${coupon.shopId}`);
+    };
+
     return (
         <div className="couponbox-container">
             <header className="header">
@@ -110,6 +117,7 @@ function CustomerCouponBoxPage() {
                                 name={coupon.name}
                                 profileImageUrl={coupon.profileImageUrl}
                                 shopId={coupon.shop_id}
+                                onClick={() => handleCouponItemClick(coupon)}
                             />
                         ))}
                     </div>
