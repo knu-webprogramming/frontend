@@ -96,7 +96,7 @@
 
   .welcome-text {
     font-size: 18px;
-    margin-bottom: 70px; /* 환영 텍스트 아래 공백 조정 */
+    margin-bottom: 200px; /* 환영 텍스트 아래 공백 조정 */
   }
 
   .logout-container {
