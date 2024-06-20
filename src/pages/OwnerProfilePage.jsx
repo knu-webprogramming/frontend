@@ -26,10 +26,6 @@ const OwnerProfilePage = () => {
   const [lng, setLng] = useState(null);
   const token = useSelector((state) => state.token.token);
 
-  const handleRedirect = () => {
-    navigate('');
-  };
-
   const handleOwnerMainClick = async () => {
     if (!storeName || !address || !ownerName || !phoneNumber || !couponBenefit || !lat || !lng || !stampType) {
       alert("모든 정보를 입력한 후 등록해주세요.");
@@ -54,20 +50,6 @@ const OwnerProfilePage = () => {
     formData.append('image', imageFile);
     formData.append('stampType', stampType);
 
-    // 모든 정보를 console.log로 출력
-    console.log({
-      storeName,
-      address,
-      ownerName,
-      phoneNumber,
-      couponBenefit,
-      stampCount,
-      stampType,
-      lat,
-      lng,
-      imageFile
-    });
-
     try {
       const response = await axios.post('https://api.couponmoa.click/shop', formData, {
         headers: {
@@ -83,7 +65,6 @@ const OwnerProfilePage = () => {
       navigate('/owner/main');
     } catch (error) {
       console.error('There was a problem with the axios operation:', error);
-      console.error('Response:', error.response);
     }
   };
 
@@ -128,7 +109,6 @@ const OwnerProfilePage = () => {
 
   const handleCouponClick = (type) => {
     setStampType(type);
-    console.log(type);
     setSelectedCoupon(type);
   };
 
@@ -233,7 +213,7 @@ const OwnerProfilePage = () => {
         <button type="button" className="submit-button" onClick={handleOwnerMainClick}>등록</button>
       </form>
       {isMapOpen && (
-        <div className="modal" onClick={closeMap}>
+        <div className="modal-overlay" onClick={closeMap}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close" onClick={closeMap}>&times;</span>
             <KakaoMapProfile onPlaceSelect={handlePlaceSelect} />

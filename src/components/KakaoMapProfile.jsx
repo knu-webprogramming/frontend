@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types'; // prop-types 추가
-import MapModalProfile from './MapModalProfile';
+import PropTypes from 'prop-types';
 import '../styles/KakaoMapProfile.css';
 
 const KakaoMapProfile = ({ onPlaceSelect }) => {
@@ -79,7 +78,7 @@ const KakaoMapProfile = ({ onPlaceSelect }) => {
   };
 
   return (
-    <div>
+    <div className="kakao-map-profile">
       <div style={{ padding: '10px' }}>
         <input
           type="text"
@@ -91,13 +90,19 @@ const KakaoMapProfile = ({ onPlaceSelect }) => {
         <button onClick={handleSearch} className="search-button" style={{ width: '100%', padding: '8px' }}>검색</button>
       </div>
       <div id="map" style={{ width: '100%', height: '500px' }}></div>
-      <MapModalProfile
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        placeName={selectedPlace}
-        address={placeInfo ? placeInfo.address : ''}
-        onConfirm={handleConfirmModal}
-      />
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={handleCloseModal}>&times;</span>
+            <p>선택한 장소: {selectedPlace}</p>
+            <p>주소: {placeInfo ? placeInfo.address : ''}</p>
+            <div className="modal-buttons">
+              <button className="confirm" onClick={handleConfirmModal}>확인</button>
+              <button className="cancel" onClick={handleCloseModal}>취소</button>
+            </div>
+          </div>
+        </div>
+      )}
       {isNoResultsModalOpen && (
         <div className="modal-overlay" onClick={handleCloseNoResultsModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
