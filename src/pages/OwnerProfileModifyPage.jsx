@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import '../styles/OwnerProfileModifyPage.css';
+import '../styles/OwnerProfilePage.css'; // 동일한 CSS 파일을 사용
 import couponaddImage from '../assets/couponadd.png';
 import couponImage from '../assets/coupon.png';
 import defaultProfileImage from '../assets/profileimage.png';
@@ -25,7 +25,6 @@ const OwnerProfileModifyPage = () => {
   const [imageFile, setImageFile] = useState(null);
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
-  const [currentImageUrl, setCurrentImageUrl] = useState('');
 
   useEffect(() => {
     const fetchShopData = async () => {
@@ -51,7 +50,6 @@ const OwnerProfileModifyPage = () => {
           if (data.profile_image_url) {
             const imageUrl = `http://${data.profile_image_url}`;
             setProfileImage(imageUrl);
-            setCurrentImageUrl(imageUrl);
           }
         }
       } catch (error) {
@@ -84,8 +82,7 @@ const OwnerProfileModifyPage = () => {
       formData.append('image', imageFile);
     }
 
-     // FormData 내용을 확인하기 위한 console.log 추가
-     for (let [key, value] of formData.entries()) {
+    for (let [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`);
     }
 
@@ -169,18 +166,20 @@ const OwnerProfileModifyPage = () => {
       <form className="form">
         <div className="form-group store-name-group">
           <label>가게명</label>
-          <input
-            type="text"
-            placeholder="가게명을 입력하세요"
-            value={storeName}
-            onChange={(e) => setStoreName(e.target.value)}
-          />
-          <img
-            src={glassesImage}
-            alt="Search Store"
-            className="glasses-icon"
-            onClick={handleMapRedirect}
-          />
+          <div className="input-with-icon">
+            <input
+              type="text"
+              placeholder="가게명을 입력하세요"
+              value={storeName}
+              readOnly
+            />
+            <img
+              src={glassesImage}
+              alt="Search Store"
+              className="glasses-icon"
+              onClick={handleMapRedirect}
+            />
+          </div>
         </div>
         <div className="form-group address-group">
           <label>주소</label>
@@ -188,7 +187,7 @@ const OwnerProfileModifyPage = () => {
             type="text"
             placeholder="주소를 입력하세요"
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            readOnly
           />
         </div>
         <div className="form-group">
@@ -212,18 +211,18 @@ const OwnerProfileModifyPage = () => {
         <div className="form-group">
           <label>쿠폰 모양</label>
           <div className="coupon-selection">
-            <img 
-              src={couponImage} 
-              alt="Coupon" 
-              onClick={() => handleCouponClick('type1')} 
-              className={selectedCoupon === 'type1' ? 'selected' : ''} 
+            <img
+              src={couponImage}
+              alt="Coupon"
+              onClick={() => handleCouponClick('type1')}
+              className={selectedCoupon === 'type1' ? 'selected' : ''}
             />
             <span>or</span>
-            <img 
-              src={couponaddImage} 
-              alt="Add Coupon" 
-              onClick={() => handleCouponClick('type2')} 
-              className={selectedCoupon === 'type2' ? 'selected' : ''} 
+            <img
+              src={couponaddImage}
+              alt="Add Coupon"
+              onClick={() => handleCouponClick('type2')}
+              className={selectedCoupon === 'type2' ? 'selected' : ''}
             />
           </div>
         </div>
