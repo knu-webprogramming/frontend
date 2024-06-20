@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/SignUpPage.css';
 import couponImage from "../assets/logo.png";
 import kakaoImage from "../assets/kakao.svg";
-import naverImage from "../assets/naver.JPG";
 import googleImage from "../assets/google.png";
 
 function ImageComponent({ src, alt, className }) {
