@@ -13,7 +13,7 @@ const StampAdd = () => {
   useEffect(() => {
     const addStamp = async () => {
       try {
-        const response = await axios.get(`https://api.couponmoa.click/coupon/stamp/${shopId}`, {
+        const response = await axios.post(`https://api.couponmoa.click/coupon/stamp/${shopId}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
