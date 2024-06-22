@@ -43,6 +43,7 @@ function App() {
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
         <Route path="/kakao-callback" element={<KakaoCallback/>} />
+        <Route path="/google-callback" element={<GoogleCallback/>} />
         <Route path="/customer/stamp" element={<StampAdd/>} />
         <Route path="/customer/coupon/use" element={<CouponUse/>} />
         <Route path="/customer/coupon/:shopId" element={<CustomerCouponPage />} />
