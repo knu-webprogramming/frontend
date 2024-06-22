@@ -54,7 +54,7 @@ function CustomerProfileModifyPage() {
     if (image) {
       formData.append('image', image);
     } else {
-      formData.append('image', null);
+      formData.append('image', new Blob(), 'null'); // image를 명시적으로 null로 설정
     }
 
     try {
