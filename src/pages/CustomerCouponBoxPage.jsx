@@ -60,7 +60,7 @@ function CustomerCouponBoxPage() {
     }, [token]);
 
     const handleRedirect = () => {
-        navigate('/');
+        navigate('/customer-main');
     };
 
     const handleCustomerMainClick = () => {
