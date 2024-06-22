@@ -47,6 +47,7 @@
     justify-content: flex-start;
     box-sizing: border-box;
     overflow-y: auto;
+    padding-top: 80px; /* 헤더와의 공백 추가 */
 }
 
 .coupon-list {
