@@ -17,6 +17,24 @@ function CustomerCouponBoxPage() {
     const [shops, setShops] = useState([]);
     const [coupons, setCoupons] = useState([]);
 
+    const fetchCoupons = async () => {
+        try {
+            const response = await axios.get('https://api.couponmoa.click/customer/shops', {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+            console.log(response.data); // 받아온 데이터 출력
+            const updatedCoupons = response.data.map(coupon => ({
+                ...coupon,
+                profileImageUrl: `https://${coupon.profile_image_url}`
+            }));
+            setCoupons(updatedCoupons);
+        } catch (error) {
+            console.error('Error fetching coupon data:', error);
+        }
+    };
+
     useEffect(() => {
         const fetchShops = async () => {
             try {
@@ -38,24 +56,6 @@ function CustomerCouponBoxPage() {
     }, [isModalOpen, token]);
 
     useEffect(() => {
-        const fetchCoupons = async () => {
-            try {
-                const response = await axios.get('https://api.couponmoa.click/customer/shops', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                console.log(response.data); // 받아온 데이터 출력
-                const updatedCoupons = response.data.map(coupon => ({
-                    ...coupon,
-                    profileImageUrl: `https://${coupon.profile_image_url}`
-                }));
-                setCoupons(updatedCoupons);
-            } catch (error) {
-                console.error('Error fetching coupon data:', error);
-            }
-        };
-
         fetchCoupons();
     }, [token]);
 
@@ -85,7 +85,7 @@ function CustomerCouponBoxPage() {
             if (response.status === 200) {
                 console.log('Coupon added successfully');
                 toggleModal();
-                // 필요한 경우 추가적인 동작 수행
+                fetchCoupons(); // 새로운 쿠폰을 추가한 후 쿠폰 목록 갱신
             } else {
                 alert('이미 등록된 쿠폰입니다.');
             }
