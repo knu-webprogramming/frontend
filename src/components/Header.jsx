@@ -7,7 +7,7 @@ function Header({ title }) {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/customer-main');
+    navigate('/customer/main');
   };
 
   return (
