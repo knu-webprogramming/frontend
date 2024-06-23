@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import StartPage from './pages/StartPage';
 import LoginPage from './pages/LoginPage';
 import SelectPage from './pages/SelectPage';
-import SignUpCompletePage from './pages/SignUpCompletePage'
 import CustomerProfilePage from './pages/CustomerProfilePage';
 import CustomerMainPage from './pages/CustomerMainPage';
 import CustomerCouponBoxPage from './pages/CustomerCouponBoxPage';
@@ -30,7 +29,6 @@ function App() {
         <Route path="/" element={<StartPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/login/select" element={<SelectPage />} />
-        <Route path="/signup/complete" element={<SignUpCompletePage />} />
         <Route path="/customer/profile" element={<CustomerProfilePage />} />
         <Route path="/customer/main" element={<CustomerMainPage />} />
         <Route path="/customer/coupon-box" element={<CustomerCouponBoxPage />} />
