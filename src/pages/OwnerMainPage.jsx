@@ -5,7 +5,6 @@ import axios from 'axios';
 import QRCode from 'react-qr-code';
 import '../styles/OwnerMainPage.css';
 import logoexImage from '../assets/cafelogo.png';
-import profileImagePlaceholder from '../assets/user.png';
 import qrImage from '../assets/qr-code.png';
 import { clearToken } from '../redux/slices/tokenSlice';
 
@@ -13,8 +12,7 @@ const OwnerMainPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const token = useSelector((state) => state.token.token);
-  const [profileData, setProfileData] = useState({ name: '점주', profileImageUrl: profileImagePlaceholder });
-  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [profileData, setProfileData] = useState({ name: '점주', profileImageUrl: null });
   const [shopId, setShopId] = useState(null); // shopId 상태 추가
   const [showQRCode, setShowQRCode] = useState(false);
 
@@ -35,12 +33,8 @@ const OwnerMainPage = () => {
           console.log(response.data);
           setProfileData({
             name: response.data.name,
-            profileImageUrl: profileImagePlaceholder,
+            profileImageUrl: response.data.profile_image_url ? `http://${response.data.profile_image_url}` : profileImagePlaceholder,
           });
-
-          if (response.data.profile_image_url) {
-            setAvatarUrl(`http://${response.data.profile_image_url}`);
-          }
 
           setShopId(response.data.shop_id); // shopId 설정
         }
@@ -76,13 +70,13 @@ const OwnerMainPage = () => {
   return (
     <div className="owner-main-page">
       <div className="owner-main-header">
-        <img src={profileData.profileImageUrl} alt="Profile" className="profile-icon" onClick={handleModifyOwnerClick} />
+        <img src={profileData.profileImageUrl || profileImagePlaceholder} alt="Profile" className="profile-icon" onClick={handleModifyOwnerClick} />
         <img src={qrImage} alt="Notifications" className="qr-icon" onClick={handleQRcodeClick} />
       </div>
 
       <div className="content">
         <div className="avatar">
-          <img src={avatarUrl} alt="Avatar" />
+          <img src={profileData.profileImageUrl || profileImagePlaceholder} alt="Avatar" />
         </div>
         <div className="welcome-text">
           <span className="highlight">{profileData.name}</span> 점주님,
