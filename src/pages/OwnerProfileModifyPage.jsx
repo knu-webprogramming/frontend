@@ -45,6 +45,7 @@ const OwnerProfileModifyPage = () => {
           setCouponBenefit(data.reward);
           setStampCount(data.max_stamps.toString());
           setStampType(data.stamp_type);
+          setSelectedCoupon(data.stamp_type); // stampType 값에 따라 선택된 쿠폰 설정
           setLat(data.y);
           setLng(data.x);
           if (data.profile_image_url) {
@@ -214,15 +215,15 @@ const OwnerProfileModifyPage = () => {
             <img
               src={couponImage}
               alt="Coupon"
-              onClick={() => handleCouponClick('type1')}
-              className={selectedCoupon === 'type1' ? 'selected' : ''}
+              onClick={() => handleCouponClick('stamp1')}
+              className={selectedCoupon === 'stamp1' ? 'selected' : ''}
             />
             <span>or</span>
             <img
               src={couponImage2}
               alt="Add Coupon"
-              onClick={() => handleCouponClick('type2')}
-              className={selectedCoupon === 'type2' ? 'selected' : ''}
+              onClick={() => handleCouponClick('stamp2')}
+              className={selectedCoupon === 'stamp2' ? 'selected' : ''}
             />
           </div>
         </div>
