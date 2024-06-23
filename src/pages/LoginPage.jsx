@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import { useSelector } from 'react-redux'; // Redux에서 토큰을 가져오기 위해 import
 import '../styles/LoginPage.css';
 import couponImage from "../assets/logo.png";
 import kakaoImage from "../assets/kakao.svg";
 import googleImage from "../assets/google.png";
+import { useNavigate } from 'react-router-dom';
 
 function ImageComponent({ src, alt, className }) {
   return <img src={src} alt={alt} className={`button-image ${className}`} />;
@@ -53,6 +55,15 @@ function LoginButtons() {
 }
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const token = useSelector((state) => state.token.token);
+
+  useEffect(() => {
+    if (token) {
+      navigate('/login/select');
+    }
+  }, [token, navigate]);
+
   return (
     <div className="signup-container">
       <img src={couponImage} alt="쿠폰모아" className="logo" />
