@@ -56,6 +56,7 @@ function CustomerCouponPage() {
     navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
 
+  // stamp
   const getStampImage = (index) => {
     const isStamp1 = data.stampType === 'stamp1';
     const isActive = index < data.currentStamps;
