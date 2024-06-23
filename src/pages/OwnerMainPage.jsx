@@ -7,6 +7,7 @@ import '../styles/OwnerMainPage.css';
 import logoexImage from '../assets/cafelogo.png';
 import qrImage from '../assets/qr-code.png';
 import { clearToken } from '../redux/slices/tokenSlice';
+import profileImagePlaceholder from '../assets/user.png';
 
 const OwnerMainPage = () => {
   const navigate = useNavigate();
