@@ -61,7 +61,7 @@ const OwnerMainPage = () => {
   };
 
   const handleQRcodeClick = () => {
-    navigate('/owner/qrcode');
+    navigate('/owner/qrcode', { state: { shopId } }); // Pass shopId as state
   };
 
   const handleLoginClick = () => {
