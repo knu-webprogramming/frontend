@@ -73,6 +73,8 @@ function CustomerCouponPage() {
     }
   };
 
+  const columns = Math.ceil(data.maxStamps / 5);
+
   return (
     <div className="coupon-container">
       <Header title={data.storeName} />
@@ -80,7 +82,7 @@ function CustomerCouponPage() {
         <div className="description">
           도장 {data.maxStamps}개 모을 시 {data.couponBenefit}
         </div>
-        <div className="stamps">
+        <div className="stamps" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
           {Array.from({ length: data.maxStamps }).map((_, index) => (
             <img
               key={index}
