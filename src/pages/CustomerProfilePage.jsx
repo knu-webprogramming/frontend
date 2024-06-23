@@ -14,6 +14,12 @@ function CustomerProfilePage() {
   const token = useSelector((state) => state.token.token); // Redux에서 토큰을 가져옴
   console.log(token)
 
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setImage(URL.createObjectURL(e.target.files[0]));

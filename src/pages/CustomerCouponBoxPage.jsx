@@ -36,6 +36,10 @@ function CustomerCouponBoxPage() {
     };
 
     useEffect(() => {
+        if (!token) {
+            navigate('/login');
+            return;
+          }
         const fetchShops = async () => {
             try {
                 const response = await axios.get('https://api.couponmoa.click/shop/all', {

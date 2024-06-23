@@ -26,6 +26,12 @@ const OwnerProfilePage = () => {
   const [lng, setLng] = useState(null);
   const token = useSelector((state) => state.token.token);
 
+  useEffect(() => {
+    if (!token) {
+      navigate('/login');
+    }
+  }, [token, navigate]);
+
   const handleOwnerMainClick = async () => {
     if (!storeName || !address || !ownerName || !phoneNumber || !couponBenefit || !lat || !lng || !stampType) {
       alert("모든 정보를 입력한 후 등록해주세요.");

@@ -19,6 +19,10 @@ const OwnerMainPage = () => {
   const [showQRCode, setShowQRCode] = useState(false);
 
   useEffect(() => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
     const fetchProfileData = async () => {
       try {
         const response = await axios.get('https://api.couponmoa.click/shop', {

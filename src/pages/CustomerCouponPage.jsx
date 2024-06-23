@@ -23,6 +23,10 @@ function CustomerCouponPage() {
   });
 
   useEffect(() => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
     const fetchShopData = async () => {
       try {
         const response = await axios.get(`https://api.couponmoa.click/coupon/${shopId}`, {

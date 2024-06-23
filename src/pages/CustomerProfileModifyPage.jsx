@@ -12,6 +12,10 @@ function CustomerProfileModifyPage() {
   const token = useSelector((state) => state.token.token); // Redux에서 토큰을 가져옴
 
   useEffect(() => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
     const fetchProfileData = async () => {
       try {
         const response = await axios.get('https://api.couponmoa.click/customer', {
