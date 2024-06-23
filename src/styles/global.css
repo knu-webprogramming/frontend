@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'CustomFont';
+    src: url('../fonts/Pretendard-Medium.woff2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'CustomFont', sans-serif;
+}
