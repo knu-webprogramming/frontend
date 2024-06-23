@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'; // Redux에서 토큰을 가져오기 위해 import
 import axios from 'axios'; // axios를 import
