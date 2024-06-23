@@ -18,12 +18,13 @@ const OwnerApprovalPage = () => {
     <div className="approval-page">
       <div className="header">
         <img src = {backImage} className="back-icon" onClick={() => window.location.href = '/owner/main'}/>
-        <h1 className="title">승인대기</h1>
-      </div>
-              <div className="notification">
+        <h1 className="approval-title">승인대기</h1>
+        <div className="notification">
           <img src={notificationImage} alt="notification" />
           <span>4건</span>
         </div>
+      </div>
+
       <main>
         {items.map(item => (
           <ApprovalItem key={item.id} item={item} />

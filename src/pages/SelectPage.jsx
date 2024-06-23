@@ -1,60 +1,75 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/SelectPage.css';
-import qs from 'qs';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import storeImage from '../assets/store.png';
 import customerImage from '../assets/customer.png';
 import couponImage from '../assets/logo.png';
 
 function SelectPage() {
   const navigate = useNavigate();
+  const token = useSelector((state) => state.token.token);
 
-  useEffect(() => {
-    const query = qs.parse(window.location.search, { ignoreQueryPrefix: true });
-    const { accessToken, refreshToken } = query;
+  const handleStoreClick = async () => {
+    try {
+      const response = await axios.get('https://api.couponmoa.click/shop', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
 
-    if (accessToken && refreshToken) {
-      // 토큰을 로컬 스토리지에 저장
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
-    } 
-    else {
-      // 토큰이 없으면 오류 처리 (옵션)
-      console.error('Tokens are missing');
-      navigate('/');
+      if (response.status === 200 && response.data) {
+        navigate('/owner/main');
+      } else {
+        navigate('/owner/profile');
+      }
+    } catch (error) {
+      console.error('Error fetching owner information:', error);
+      navigate('/owner/profile');
     }
-  }, [navigate]);
-
-  const handleStoreClick = () => {
-    window.location.href = '/owner/profile';
   };
 
-  const handleCustomerClick = () => {
-    window.location.href = '/customer/profile';
-  };
+  const handleCustomerClick = async () => {
+    try {
+      const response = await axios.get('https://api.couponmoa.click/customer', {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
 
+      if (response.status === 200 && response.data) {
+        navigate('/customer/main');
+      } else {
+        navigate('/customer/profile');
+      }
+    } catch (error) {
+      console.error('Error fetching owner information:', error);
+      navigate('/customer/profile');
+    }
+  };
 
   return (
     <div className="select-container">
-        <img src={couponImage} alt="Logo" className="logo" onClick={handleCustomerClick} />
+      <img src={couponImage} alt="Logo" className="logo" onClick={handleCustomerClick} />
       <div className="text">
         <p>어느 유형의 사용자이신가요?</p>
       </div>
       <div className="options">
         <div className="option" onClick={handleStoreClick}>
-          <img src={storeImage} alt="Store" className="icon"/>
+          <img src={storeImage} alt="Store" className="icon" />
           <div className="text">
-          <p>점주</p>
-          </div>
+            <p>점주</p>
           </div>
         </div>
         <div className="option" onClick={handleCustomerClick}>
           <img src={customerImage} alt="Customer" className="icon" />
           <div className="text">
-          <p>고객</p>
+            <p>고객</p>
           </div>
         </div>
       </div>
+    </div>
   );
 }
 

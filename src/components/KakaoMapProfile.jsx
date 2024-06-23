@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';  // prop-types 추가
-import MapModalProfile from './MapModalProfile';
+import PropTypes from 'prop-types';
 import '../styles/KakaoMapProfile.css';
 
-const KakaoMapProfile = ({onPlaceSelect}) => {
-  console.log('KakaoMapProfile rendered with onPlaceSelect:', onPlaceSelect);
-
+const KakaoMapProfile = ({ onPlaceSelect }) => {
   const [map, setMap] = useState(null);
   const [keyword, setKeyword] = useState('');
   const [selectedPlace, setSelectedPlace] = useState(null);
@@ -26,18 +23,14 @@ const KakaoMapProfile = ({onPlaceSelect}) => {
         };
         const mapInstance = new window.kakao.maps.Map(container, options);
         setMap(mapInstance);
-        console.log('Map loaded:', mapInstance);
       });
     };
     document.head.appendChild(script);
   }, []);
 
   const handleSearch = () => {
-    console.log('Search started with keyword:', keyword);
     const ps = new window.kakao.maps.services.Places();
-
     ps.keywordSearch(keyword, (data, status) => {
-      console.log('Search results:', data);
       if (status === window.kakao.maps.services.Status.OK) {
         const bounds = new window.kakao.maps.LatLngBounds();
         data.forEach((place) => {
@@ -47,7 +40,6 @@ const KakaoMapProfile = ({onPlaceSelect}) => {
           });
 
           window.kakao.maps.event.addListener(marker, 'click', () => {
-            console.log('Marker clicked:', place);
             setSelectedPlace(place.place_name);
             setPlaceInfo({
               name: place.place_name,
@@ -73,7 +65,6 @@ const KakaoMapProfile = ({onPlaceSelect}) => {
   };
 
   const handleConfirmModal = () => {
-    console.log('Confirm modal with placeInfo:', placeInfo);
     if (typeof onPlaceSelect === 'function') {
       onPlaceSelect(placeInfo);
     } else {
@@ -87,7 +78,7 @@ const KakaoMapProfile = ({onPlaceSelect}) => {
   };
 
   return (
-    <div>
+    <div className="kakao-map-profile">
       <div style={{ padding: '10px' }}>
         <input
           type="text"
@@ -99,13 +90,19 @@ const KakaoMapProfile = ({onPlaceSelect}) => {
         <button onClick={handleSearch} className="search-button" style={{ width: '100%', padding: '8px' }}>검색</button>
       </div>
       <div id="map" style={{ width: '100%', height: '500px' }}></div>
-      <MapModalProfile
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        placeName={selectedPlace}
-        address={placeInfo ? placeInfo.address : ''}
-        onConfirm={handleConfirmModal}
-      />
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={handleCloseModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <span className="close" onClick={handleCloseModal}>&times;</span>
+            <p>선택한 장소: {selectedPlace}</p>
+            <p>주소: {placeInfo ? placeInfo.address : ''}</p>
+            <div className="modal-buttons">
+              <button className="confirm" onClick={handleConfirmModal}>확인</button>
+              <button className="cancel" onClick={handleCloseModal}>취소</button>
+            </div>
+          </div>
+        </div>
+      )}
       {isNoResultsModalOpen && (
         <div className="modal-overlay" onClick={handleCloseNoResultsModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

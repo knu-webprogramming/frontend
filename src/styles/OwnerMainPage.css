@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Top align */
   height: 100vh;
   text-align: center;
   box-sizing: border-box;
   padding: 20px;
+  padding-top: 80px; /* 상단 여백 추가 */
+  padding-bottom: 20px; /* 하단 여백 추가 */
 }
 
-.header {
+.owner-main-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -17,10 +19,11 @@
   position: absolute;
   top: 0;
   box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-icon, .notification-icon {
-  width: 50px;
+.profile-icon, .qr-icon {
+  width: 40px;
   cursor: pointer;
 }
 
@@ -29,18 +32,20 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  margin-top: 20px; /* 상단 여백 추가 */
 }
 
 .avatar img {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
+  object-fit: cover; /* 이미지 전체가 다 뜨게 함 */
 }
 
 .welcome-text {
   margin-top: 20px;
   font-size: 20px;
   color: #333;
+  margin-bottom: 480px; /* 환영 텍스트 아래 공백 세 배로 증가 */
 }
 
 .highlight {
@@ -50,7 +55,7 @@
 
 .logout-container {
   position: absolute;
-  bottom: 20px;
+  bottom: 20px; /* 하단에서 20px 여백 */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -62,50 +67,111 @@
   color: grey;
   text-decoration: underline;
   cursor: pointer;
+  margin-top:auto;
+}
+
+/* 모달 스타일 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  width: 90%;
+  max-width: 400px; /* 기본 모달 최대 너비 */
+  box-sizing: border-box;
+  top: 100px; /* top 속성을 추가하여 모달이 상단에서 내려오게 설정 */
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .customer-main-page {
-      padding: 10px;
+  .owner-main-page {
+    padding: 10px;
+    padding-top: 80px; /* 상단 여백 유지 */
+    padding-bottom: 20px; /* 하단 여백 유지 */
   }
 
-  .header {
-      padding: 10px;
+  .owner-main-header {
+    padding: 10px;
   }
 
-  .profile-icon, .notification-icon {
-      width: 40px;  }
+  .profile-icon, .qr-icon {
+    width: 35px;
+    height: 35px;
+  }
 
   .avatar img {
-      width: 120px;
-      height: 120px;
+    width: 120px;
+    height: 120px;
   }
 
   .welcome-text {
-      font-size: 18px;
+    font-size: 18px;
+    margin-bottom: 420px; /* 환영 텍스트 아래 공백 세 배로 증가 */
+  }
+
+  .logout-container {
+    bottom: 20px; /* 하단 여백 유지 */
   }
 
   .logout-button {
-      font-size: 14px;
+    font-size: 14px;
+  }
+
+  .modal {
+    width: 80%;
+    max-width: 350px; /* 작은 화면에서 모달 최대 너비 */
   }
 }
 
 @media (max-width: 480px) {
-  .profile-icon, .notification-icon {
-      width: 30px;
+  .owner-main-page {
+    padding-top: 80px; /* 상단 여백 유지 */
+    padding-bottom: 20px; /* 하단 여백 유지 */
+  }
+
+  .owner-main-header {
+    height: 50px; /* Header height 설정 */
+  }
+
+  .profile-icon, .qr-icon {
+    width: 30px;
+    height: 30px;
   }
 
   .avatar img {
-      width: 100px;
-      height: 100px;
+    width: 100px;
+    height: 100px;
   }
 
   .welcome-text {
-      font-size: 16px;
+    font-size: 16px;
+    margin-bottom: 360px; /* 환영 텍스트 아래 공백 세 배로 증가 */
+  }
+
+  .logout-container {
+    bottom: 20px; /* 하단 여백 유지 */
   }
 
   .logout-button {
-      font-size: 12px;
+    font-size: 12px;
+  }
+
+  .modal {
+    width: 90%;
+    max-width: 300px; /* 더 작은 화면에서 모달 최대 너비 */
   }
 }

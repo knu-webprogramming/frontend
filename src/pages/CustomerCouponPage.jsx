@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import Header from '../components/Header';
-import backImage from '../assets/back.png';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function CustomerCouponPage() {
   const navigate = useNavigate();
+  const { shopId } = useParams();
+  const token = useSelector((state) => state.token.token);
+  const shopName = useSelector((state) => state.shopName);
   const [data, setData] = useState({
-    storeName: '',
+    storeName: shopName,
     stampType: 'stamp1',
     maxStamps: 10,
     currentStamps: 0,
@@ -17,36 +21,38 @@ function CustomerCouponPage() {
   });
 
   useEffect(() => {
-    fetch('/data/customer-coupon.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error loading stamp data:', error));
-  }, []);
+    const fetchShopData = async () => {
+      try {
+        const response = await axios.get(`https://api.couponmoa.click/coupon/${shopId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        const shopData = response.data;
+        console.log(shopData);
+        setData((prevState) => ({
+          ...prevState,
+          storeName: shopData.name || prevState.storeName,
+          stampType: shopData.stamp_type,
+          maxStamps: shopData.max_stamps,
+          currentStamps: shopData.stamps,
+          couponBenefit: shopData.reward
+        }));
+      } catch (error) {
+        console.error('Error fetching shop data:', error);
+      }
+    };
+
+    fetchShopData();
+  }, [shopId, token]);
 
   const handleAddStamp = () => {
-    setData(prevData => {
-      const newCurrentStamps = prevData.currentStamps + 1;
-      return {
-        ...prevData,
-        currentStamps: newCurrentStamps > prevData.maxStamps ? prevData.maxStamps : newCurrentStamps,
-      };
-    });
+    navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
 
   const handleCouponUse = () => {
-    setData(prevData => ({
-      ...prevData,
-      currentStamps: 0,
-    }));
+    navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
-
-  const handleRedirect = () => {
-    navigate('/');
-  };
-  const handleCouponClick = () => {
-    navigate('/');
-  };
-
 
   return (
     <div className="coupon-container">
