@@ -9,7 +9,6 @@ import GlobalStyle from './GlobalStyle';
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
-      <GlobalStyle />
       <App />
     </PersistGate>
   </Provider>,
