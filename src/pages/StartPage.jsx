@@ -20,8 +20,7 @@ function StartPage() {
  <div className="start-container">
       <img src={couponImage} alt="쿠폰모아" className="start-logo" />
     <div className="start-text"> This page will redirect to login page in 3 seconds.</div>
-    </div>
-    </div>  
+    </div> 
   );
 }
 
