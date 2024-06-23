@@ -46,6 +46,8 @@ function CustomerCouponPage() {
         }));
       } catch (error) {
         console.error('Error fetching shop data:', error);
+        alert('등록되지 않은 쿠폰입니다. 쿠폰함에서 등록 후 사용해주세요.')
+        navigate('/customer/coupon-box')
       }
     };
 
