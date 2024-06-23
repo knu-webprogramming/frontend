@@ -15,7 +15,8 @@ import OwnerProfileModifyPage from './pages/OwnerProfileModifyPage';
 import OwnerApprovalPage from './pages/OwnerApprovalPage';
 import KakaoMapProfile from './components/KakaoMapProfile';
 import KakaoMap from './components/KakaoMap';
-import KakaoCallback from './components/KakaoCallBack';
+import KakaoCallBack from './components/KakaoCallBack';
+import GoogleCallBack from './components/GoogleCallBack';
 import WebcamPage from './pages/WebcamPage';
 import QRCodeScanner from './components/QRCodeScanner';
 import StampAdd from './components/StampAdd';
@@ -44,7 +45,8 @@ function App() {
         <Route path="/owner/profile/modify" element={<OwnerProfileModifyPage />} />
         <Route path="/owner/approval" element={<OwnerApprovalPage />} />
         <Route path="/owner/qrcode" element={<QRCodePage />} />
-        <Route path="/kakao-callback" element={<KakaoCallback/>} />
+        <Route path="/kakao-callback" element={<KakaoCallBack/>} />
+        <Route path="/google-callback" element={<GoogleCallBack/>} />
         <Route path="/customer/stamp" element={<StampAdd/>} />
         <Route path="/customer/coupon/use" element={<CouponUse/>} />
         <Route path="/customer/coupon/:shopId" element={<CustomerCouponPage />} />

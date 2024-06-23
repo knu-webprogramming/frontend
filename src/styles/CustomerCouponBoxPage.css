@@ -2,10 +2,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100%;
-    text-align: center;
     font-family: 'Arial, sans-serif';
     box-sizing: border-box;
     position: relative;
@@ -36,14 +34,41 @@
     cursor: pointer;
     margin-top: 0;
     margin-bottom: 0;
+    text-align: center;
 }
 
 .main-content {
     flex-grow: 1;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     box-sizing: border-box;
+    overflow-y: auto;
+    padding-top: 80px; /* 헤더와의 공백 추가 */
+}
+
+.coupon-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coupon-item {
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .no-coupons {

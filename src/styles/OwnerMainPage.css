@@ -93,6 +93,7 @@
   width: 90%;
   max-width: 400px; /* 기본 모달 최대 너비 */
   box-sizing: border-box;
+  top: 100px; /* top 속성을 추가하여 모달이 상단에서 내려오게 설정 */
 }
 
 /* 반응형 디자인 */

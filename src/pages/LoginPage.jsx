@@ -27,7 +27,7 @@ function LoginButtons() {
   };
 
   const handleGoogleLogin = () => {
-    window.location.href = '/';
+    window.location.href = 'https://api.couponmoa.click/oauth2/authorization/google';
   };
 
   return (
