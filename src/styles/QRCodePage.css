@@ -46,7 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 9999; 
+  z-index: 9999;
 }
 
 .modal {
@@ -58,7 +58,7 @@
   width: 90%;
   max-width: 400px;
   max-height: 90%; /* 최대 높이 설정 */
-  overflow: auto; /* 모달 내 스크롤 생성 */
+  overflow: hidden; /* 모달 내 스크롤 생성 제거 */
   box-sizing: border-box;
   z-index: 10000;
 }
