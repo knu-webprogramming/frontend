@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import '../styles/StartPage.css';
 import couponImage from "../assets/logo.png";
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function StartPage() {
   const navigate = useNavigate();
+  const token = useSelector((state) => state.token.token);
   const [countdown, setCountdown] = useState(3);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -13,7 +16,11 @@ function StartPage() {
     }, 1000);
 
     const navigateTimeout = setTimeout(() => {
-      navigate('/login');
+      if (token) {
+        navigate('/login/select');
+      } else {
+        navigate('/login');
+      }
     }, 3000);
 
     return () => {
