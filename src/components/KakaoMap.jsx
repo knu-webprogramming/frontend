@@ -103,6 +103,9 @@ const KakaoMap = () => {
         }
       } catch (error) {
         console.error('Error adding coupon:', error);
+        alert('이미 등록된 쿠폰입니다.');
+        setIsModalOpen(false);
+        navigate('/customer/coupon-box');
       }
     }
   };
