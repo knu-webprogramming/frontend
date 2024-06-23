@@ -4,7 +4,7 @@ import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
 import stamp2_activate from '../assets/stamp2-activate.png';
-import stamp2_normal from '../assets/stamp2-normal.png';
+import stamp2_normal from '../assets/coupon2.png';
 import Header from '../components/Header';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
