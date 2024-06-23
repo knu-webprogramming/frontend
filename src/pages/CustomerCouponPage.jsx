@@ -73,7 +73,8 @@ function CustomerCouponPage() {
     }
   };
 
-  const columns = Math.ceil(data.maxStamps / 5);
+  // Calculate the number of rows needed based on maxStamps
+  const numRows = Math.ceil(data.maxStamps / 5);
 
   return (
     <div className="coupon-container">
@@ -82,7 +83,7 @@ function CustomerCouponPage() {
         <div className="description">
           도장 {data.maxStamps}개 모을 시 {data.couponBenefit}
         </div>
-        <div className="stamps" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
+        <div className="stamps" style={{ gridTemplateRows: `repeat(${numRows}, 1fr)` }}>
           {Array.from({ length: data.maxStamps }).map((_, index) => (
             <img
               key={index}
