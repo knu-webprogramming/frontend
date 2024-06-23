@@ -3,6 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import '../styles/CustomerCouponPage.css';
 import stamp1_activate from '../assets/stamp1-activate.png';
 import stamp1_normal from '../assets/stamp1-normal.png';
+import stamp2_activate from '../assets/stamp2-activate.png';
+import stamp2_normal from '../assets/stamp2-normal.png';
 import Header from '../components/Header';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
@@ -54,6 +56,16 @@ function CustomerCouponPage() {
     navigate(`/customer/coupon/camera/${shopId}`); // 카메라 페이지로 이동할 때 shopId를 전달
   };
 
+  const getStampImage = (index) => {
+    const isStamp1 = data.stampType === 'stamp1';
+    const isActive = index < data.currentStamps;
+    if (isStamp1) {
+      return isActive ? stamp1_activate : stamp1_normal;
+    } else {
+      return isActive ? stamp2_activate : stamp2_normal;
+    }
+  };
+
   return (
     <div className="coupon-container">
       <Header title={data.storeName} />
@@ -65,7 +77,7 @@ function CustomerCouponPage() {
           {Array.from({ length: data.maxStamps }).map((_, index) => (
             <img
               key={index}
-              src={index < data.currentStamps ? stamp1_activate : stamp1_normal}
+              src={getStampImage(index)}
               alt="stamp"
               className={`stamp ${index < data.currentStamps ? 'active' : 'inactive'}`}
             />
