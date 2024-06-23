@@ -7,12 +7,11 @@
     width: 100%;
     text-align: center;
     font-family: 'Arial, sans-serif';
-    padding: 20px;
     box-sizing: border-box;
     position: relative;
 }
 
-.header {
+.costomer-couponbox-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,9 +29,9 @@
     cursor: pointer;
 }
 
-.title {
+.costomer-couponbox-title {
     flex-grow: 1;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     cursor: pointer;
     margin-top: 0;
@@ -147,8 +146,8 @@
         height: 26px;
     }
 
-    .title {
-        font-size: 16px;
+    .customer-couponbox-title {
+        font-size: 22px;
     }
 
     .no-coupons {
@@ -171,6 +170,7 @@
 @media (max-width: 480px) {
     .header {
         padding: 6px 12px;
+        height:50px;
     }
 
     .back-icon img, .add-icon img {
@@ -178,10 +178,10 @@
         height: 24px;
     }
 
-    .title {
-        font-size: 14px;
+    .customer-couponbox-title {
+        font-size: 20px;
     }
-
+    
     .no-coupons {
         font-size: 12px;
     }

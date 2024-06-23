@@ -23,6 +23,7 @@ function StartPage() {
       <div><Link to="/owner/main">11. OwnerMainPage</Link></div>
       <div><Link to="/owner/approval">12. OwnerApprovalPage</Link></div>
       <div><Link to="/owner/map">13. OwnerMapPage</Link></div>
+      <div><Link to="/owner/qrcode">14. QRCodePage</Link></div>
     </div>
   );
 }

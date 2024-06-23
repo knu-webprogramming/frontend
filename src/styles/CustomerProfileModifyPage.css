@@ -10,9 +10,9 @@
   box-sizing: border-box;
 }
 
-.title {
+.customer-modify-title {
   font-size: 24px;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 }
 
 .profile-pic-container {
@@ -54,7 +54,7 @@ input {
   box-sizing: border-box;
 }
 
-.submit-button {
+.customer-submit-button {
   margin-top: 15px;
   width: 100%;
   padding: 15px;
@@ -66,14 +66,14 @@ input {
   cursor: pointer;
 }
 
-.submit-button:hover {
+.customer-submit-button:hover {
   background-color: #ff425e;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
-  .title {
-    font-size: 20px;
+  .customer-modify-title {
+      font-size: 20px;
   }
 
   label {
@@ -85,15 +85,15 @@ input {
     padding: 8px;
   }
 
-  .submit-button {
+  .customer-submit-button {
     font-size: 16px;
     padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
-  .title {
-    font-size: 18px;
+  .customer-modify-title {
+      font-size: 18px;
   }
 
   label {
@@ -105,7 +105,7 @@ input {
     padding: 6px;
   }
 
-  .submit-button {
+  .customer-submit-button {
     font-size: 14px;
     padding: 10px;
   }

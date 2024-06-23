@@ -65,7 +65,7 @@ function CustomerProfilePage() {
 
   return (
     <div className="form-container">
-      <h1 className="title">회원 정보 입력</h1>
+      <h1 className="profile-title">회원 정보 입력</h1>
       <div className="profile-pic-container">
         <input
           type="file"
@@ -91,7 +91,7 @@ function CustomerProfilePage() {
           onChange={handleNameChange}
         />
       </div>
-      <button className="submit-button" onClick={handleCustomerMainClick}>등록</button>
+      <button className="customer-submit-button" onClick={handleCustomerMainClick}>등록</button>
     </div>
   );
 }

@@ -11,7 +11,7 @@
   padding-bottom: 20px; /* 하단 여백 추가 */
 }
 
-.header {
+.owner-main-header {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -19,10 +19,11 @@
   position: absolute;
   top: 0;
   box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.profile-icon, .notification-icon {
-  width: 50px;
+.profile-icon, .qr-icon {
+  width: 40px;
   cursor: pointer;
 }
 
@@ -66,6 +67,7 @@
   color: grey;
   text-decoration: underline;
   cursor: pointer;
+  margin-top:auto;
 }
 
 /* 모달 스타일 */
@@ -101,12 +103,13 @@
     padding-bottom: 20px; /* 하단 여백 유지 */
   }
 
-  .header {
+  .owner-main-header {
     padding: 10px;
   }
 
-  .profile-icon, .notification-icon {
-    width: 40px;
+  .profile-icon, .qr-icon {
+    width: 35px;
+    height: 35px;
   }
 
   .avatar img {
@@ -139,12 +142,13 @@
     padding-bottom: 20px; /* 하단 여백 유지 */
   }
 
-  .header {
+  .owner-main-header {
     height: 50px; /* Header height 설정 */
   }
 
-  .profile-icon, .notification-icon {
+  .profile-icon, .qr-icon {
     width: 30px;
+    height: 30px;
   }
 
   .avatar img {

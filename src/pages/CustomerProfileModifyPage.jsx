@@ -80,7 +80,7 @@ function CustomerProfileModifyPage() {
 
   return (
     <div className="form-container">
-      <h1 className="title">회원 정보 수정</h1>
+      <h1 className="customer-modify-title">회원 정보 수정</h1>
       <div className="profile-pic-container">
         <input
           type="file"
@@ -104,7 +104,7 @@ function CustomerProfileModifyPage() {
           onChange={handleNameChange}
         />
       </div>
-      <button className="submit-button" onClick={handleCustomerMainClick}>수정</button>
+      <button className="customer-submit-button" onClick={handleCustomerMainClick}>수정</button>
     </div>
   );
 }

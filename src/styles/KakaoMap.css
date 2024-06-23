@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 10px;
   box-sizing: border-box;
+  justify-content: center;
 }
 
 input[type="text"] {
@@ -13,18 +14,22 @@ input[type="text"] {
 }
 
 button.search-button {
+  margin-top: 15px;
   width: 100%;
-  padding: 8px;
-  background-color: #ff637f;
+  height: 50px;
+  padding: 15px;
+  font-size: 18px;
   color: white;
+  background-color: #FF5872; 
   border: none;
+  border-radius: 8px; /* Adjust the border-radius */
   cursor: pointer;
-  box-sizing: border-box;
 }
 
 button.search-button:hover {
-  background-color: #ff4a66;
+  background-color: #ff425e;
 }
+
 
 #map {
   width: 100%;

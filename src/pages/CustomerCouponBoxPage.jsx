@@ -103,11 +103,11 @@ function CustomerCouponBoxPage() {
 
     return (
         <div className="couponbox-container">
-            <header className="header">
+            <header className="costomer-couponbox-header">
                 <div className="back-icon" onClick={handleCustomerMainClick}>
                     <img src={backImage} alt="Back Icon" />
                 </div>
-                <h1 className="title" onClick={handleRedirect}>쿠폰함</h1>
+                <h1 className="costomer-couponbox-title" onClick={handleRedirect}>쿠폰함</h1>
                 <div className="add-icon" onClick={toggleModal}>
                     <img src={addImage} alt="Add Icon" />
                 </div>

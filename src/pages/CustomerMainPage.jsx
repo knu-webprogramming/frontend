@@ -56,9 +56,9 @@ const CustomerMainPage = () => {
 
   return (
     <div className="customer-main-page">
-      <div className="header">
+      <div className="customer-main-header ">
         <img src={profileData.profileImageUrl} alt="Profile" className="profile-icon" onClick={handleModifyCustomerClick} />
-        <h1 className="title" onClick={handleClick}>쿠폰모아</h1>
+        <h1 className="costomer-main-title" onClick={handleClick}>쿠폰모아</h1>
         <img src={couponlistImage} alt="Coupon List" className="couponlist-icon" onClick={handleCouponListClick} />
       </div>
 
@@ -71,10 +71,10 @@ const CustomerMainPage = () => {
           <br />
           안녕하세요
         </div>
+        </div>
         <div className="logout-container">
           <span className="logout-button" onClick={handleLoginClick}>로그아웃</span>
         </div>
-      </div>
     </div>
   );
 };

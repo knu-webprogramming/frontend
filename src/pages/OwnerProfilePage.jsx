@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import '../styles/OwnerProfilePage.css';
-import couponaddImage from '../assets/couponadd.png';
+import couponImage2 from '../assets/coupon2.png';
 import couponImage from '../assets/coupon.png';
 import defaultProfileImage from '../assets/profileimage.png';
 import KakaoMapProfile from '../components/KakaoMapProfile';
@@ -114,7 +114,7 @@ const OwnerProfilePage = () => {
 
   return (
     <div className="ownerprofile-container">
-      <h1 className="title">가게 정보 입력</h1>
+      <h1 className="owner-profile-title">가게 정보 입력</h1>
       <div className="profile-image">
         <input
           type="file"
@@ -186,7 +186,7 @@ const OwnerProfilePage = () => {
             />
             <span>or</span>
             <img
-              src={couponaddImage}
+              src={couponImage2}
               alt="Add Coupon"
               onClick={() => handleCouponClick('type2')}
               className={selectedCoupon === 'type2' ? 'selected' : ''}
@@ -210,7 +210,7 @@ const OwnerProfilePage = () => {
             onChange={(e) => setCouponBenefit(e.target.value)}
           />
         </div>
-        <button type="button" className="submit-button" onClick={handleOwnerMainClick}>등록</button>
+        <button type="button" className="owner-submit-button" onClick={handleOwnerMainClick}>등록</button>
       </form>
       {isMapOpen && (
         <div className="modal-overlay" onClick={closeMap}>

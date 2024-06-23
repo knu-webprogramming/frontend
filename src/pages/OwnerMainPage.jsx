@@ -6,7 +6,7 @@ import QRCode from 'react-qr-code';
 import '../styles/OwnerMainPage.css';
 import logoexImage from '../assets/cafelogo.png';
 import profileImagePlaceholder from '../assets/user.png';
-import notificationImage from '../assets/mainnotification.png';
+import qrImage from '../assets/qr-code.png';
 import { clearToken } from '../redux/slices/tokenSlice';
 
 const OwnerMainPage = () => {
@@ -56,6 +56,10 @@ const OwnerMainPage = () => {
     setShowQRCode(true);
   };
 
+  const handleQRcodeClick = () => {
+    navigate('/owner/qrcode');
+  };
+
   const handleLoginClick = () => {
     dispatch(clearToken());
     navigate('/');
@@ -67,9 +71,9 @@ const OwnerMainPage = () => {
 
   return (
     <div className="owner-main-page">
-      <div className="header">
+      <div className="owner-main-header">
         <img src={profileData.profileImageUrl} alt="Profile" className="profile-icon" onClick={handleModifyOwnerClick} />
-        <img src={notificationImage} alt="Notifications" className="notification-icon" onClick={handleApprovalClick} />
+        <img src={qrImage} alt="Notifications" className="qr-icon" onClick={handleQRcodeClick} />
       </div>
 
       <div className="content">

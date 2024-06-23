@@ -12,7 +12,7 @@
   overflow-y: visible;
 }
 
-.title {
+.owner-profile-title {
   font-size: 24px;
   margin-bottom: 20px;
   width: 100%; /* 제목을 중앙에 정렬하기 위해 전체 너비를 차지하도록 설정 */
@@ -107,7 +107,7 @@
   margin: 0 10px;
 }
 
-.submit-button {
+.owner-submit-button {
   margin-top: 15px;
   width: 80%; /* 버튼 너비를 다른 입력 필드와 맞춤 */
   max-width: 400px; /* 최대 너비를 400px로 설정 */
@@ -121,7 +121,7 @@
   margin-bottom: 15px;
 }
 
-.submit-button:hover {
+.owner-submit-button:hover {
   background-color: #ff425e;
 }
 
@@ -157,8 +157,13 @@
     height: 30px;
   }
 
-  .submit-button {
-    padding: 12px;
+  .owner-submit-button {
+
+      padding: 12px;
+  }
+
+  .owner-profile-title {
+      font-size: 20px;
   }
 }
 

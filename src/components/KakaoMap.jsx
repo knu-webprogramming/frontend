@@ -112,7 +112,7 @@ const KakaoMap = () => {
   };
 
   return (
-    <div>
+    <div classname="container">
       <div style={{ padding: '10px' }}>
         <input
           type="text"

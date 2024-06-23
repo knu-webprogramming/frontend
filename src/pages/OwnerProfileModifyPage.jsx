@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import '../styles/OwnerProfilePage.css'; // 동일한 CSS 파일을 사용
-import couponaddImage from '../assets/couponadd.png';
+import couponImage2 from '../assets/coupon2.png';
 import couponImage from '../assets/coupon.png';
 import defaultProfileImage from '../assets/profileimage.png';
 import KakaoMapProfile from '../components/KakaoMapProfile';
@@ -151,7 +151,7 @@ const OwnerProfileModifyPage = () => {
 
   return (
     <div className="ownerprofile-container">
-      <h1 className="title">가게 정보 수정</h1>
+      <h1 className="owner-profile-title">가게 정보 수정</h1>
       <div className="profile-image">
         <input
           type="file"
@@ -219,7 +219,7 @@ const OwnerProfileModifyPage = () => {
             />
             <span>or</span>
             <img
-              src={couponaddImage}
+              src={couponImage2}
               alt="Add Coupon"
               onClick={() => handleCouponClick('type2')}
               className={selectedCoupon === 'type2' ? 'selected' : ''}
@@ -243,7 +243,7 @@ const OwnerProfileModifyPage = () => {
             onChange={(e) => setCouponBenefit(e.target.value)}
           />
         </div>
-        <button type="button" className="submit-button" onClick={handleOwnerMainClick}>수정</button>
+        <button type="button" className="owner-submit-button" onClick={handleOwnerMainClick}>수정</button>
       </form>
       {isMapOpen && (
         <div className="modal" onClick={closeMap}>
