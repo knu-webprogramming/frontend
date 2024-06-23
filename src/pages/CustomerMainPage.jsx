@@ -14,7 +14,13 @@ const CustomerMainPage = () => {
   const token = useSelector((state) => state.token.token);
   const [profileData, setProfileData] = useState({ name: '고객', profileImageUrl: profileImagePlaceholder });
 
+  
   useEffect(() => {
+    if (!token) {
+      navigate('/login');
+      return;
+    }
+
     const fetchProfileData = async () => {
       try {
         const response = await axios.get('https://api.couponmoa.click/customer', {
