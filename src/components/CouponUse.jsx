@@ -25,7 +25,7 @@ const CouponUse = () => {
         }
       } catch (error) {
         console.error('Error using coupon:', error);
-        setAlertMessage('쿠폰 사용에 실패하였습니다.');
+        setAlertMessage('쿠폰 사용에 실패하였습니다.'); //
         navigate(`/customer/coupon/${shopId}`, { replace: true });
       }
     };
